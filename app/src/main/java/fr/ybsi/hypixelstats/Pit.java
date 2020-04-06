@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.MobileAds;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -39,6 +40,9 @@ public class Pit extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        MobileAds.initialize(this, "ca-app-pub-6251821844352758~2907624350");
+
+
         setContentView(R.layout.activity_pit);
 
         this.imgbutton = (ImageView) findViewById(R.id.imageView8);

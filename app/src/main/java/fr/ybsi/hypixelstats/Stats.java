@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -51,10 +53,17 @@ public class Stats extends AppCompatActivity {
     private static String imgURL;
     private static String Karma;
 
+    private InterstitialAd mInterstitialAd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        MobileAds.initialize(this, "ca-app-pub-6251821844352758~2907624350");
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-6251821844352758/4204983792");
         setContentView(R.layout.activity_stats);
+
+
 
         Intent intent = getIntent();
         user = intent.getStringExtra("username");

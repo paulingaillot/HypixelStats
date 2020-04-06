@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.MobileAds;
+
 import org.w3c.dom.Text;
 
 public class menu extends AppCompatActivity {
@@ -24,6 +26,9 @@ public class menu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        MobileAds.initialize(this, "ca-app-pub-6251821844352758~2907624350");
+
+
         setContentView(R.layout.activity_menu);
 
         Intent intent = getIntent();

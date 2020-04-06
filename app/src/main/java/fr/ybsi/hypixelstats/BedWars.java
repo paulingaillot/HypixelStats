@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.MobileAds;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -39,6 +40,7 @@ public class BedWars extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bed_wars);
+        MobileAds.initialize(this, "ca-app-pub-6251821844352758~2907624350");
 
         this.imgButton = (ImageView) findViewById(R.id.imageView8);
         this.username = findViewById(R.id.username);

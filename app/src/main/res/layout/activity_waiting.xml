@@ -8,14 +8,28 @@
 
     <TextView
         android:id="@+id/textView19"
-        android:layout_width="355dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="229dp"
+        android:layout_width="318dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="78dp"
         android:text="Chargement en cours."
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/adView9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.678"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView9"
+        android:layout_width="335dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="27dp"
+        app:adSize="INTERSTITIAL"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
 </androidx.constraintlayout.widget.ConstraintLayout>
