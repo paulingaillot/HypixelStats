@@ -11,11 +11,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -44,7 +48,7 @@ public class TnTGames extends AppCompatActivity {
     private TextView wins_bow;
     private TextView kills_bow;
 
-    private String imgURL;
+    private Bitmap imgURL;
     private String username1;
     private String money1;
     private String wins1;
@@ -71,10 +75,27 @@ public class TnTGames extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        MobileAds.initialize(this, "ca-app-pub-6251821844352758~2907624350");
+       setContentView(R.layout.activity_waiting);
 
+        AdView mAdView1 = findViewById(R.id.adView9);
+        AdRequest adRequest1 = new AdRequest.Builder().build();
+        mAdView1.loadAd(adRequest1);
+
+        Intent intent = getIntent();
+        user = intent.getStringExtra("username");
+
+        new Thread(background).start();
+
+        while(!finish) {
+            continue;
+        }
+        if(finish) {
 
         setContentView(R.layout.activity_tn_tgames);
+
+        AdView mAdView = findViewById(R.id.adView8);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         this.imgbutton = (ImageView) findViewById(R.id.imageView8);
         this.head = findViewById(R.id.imageView10);
@@ -98,13 +119,7 @@ public class TnTGames extends AppCompatActivity {
         this.kills_bow = findViewById(R.id.kills_bow);
 
 
-        Intent intent = getIntent();
-        final String user = intent.getStringExtra("username");
 
-        while(!finish) {
-            continue;
-        }
-        if(finish) {
             username.setText(username1+"");
             money.setText(money1);
 
@@ -122,23 +137,19 @@ public class TnTGames extends AppCompatActivity {
             deaths_tntrun.setText(TnTRun_Deaths);
 
             dj_pvprun.setText(PvPRun_DoubleJump);
-            dj_tntrun.setText(TnTRunDoubleJump);
+           // dj_tntrun.setText(TnTRunDoubleJump);
 
             survived_pvprun.setText(PvPRun_Record);
             slp_tntrun.setText(TnTRun_SlowPotion);
             spp_tntrun.setText(TnTRun_SpeedPotion);
 
-            try {
-                Bitmap bitmap = BitmapFactory.decodeStream((InputStream) new URL(imgURL).getContent());
-                head.setImageBitmap(bitmap);
-            }catch(Exception e){
+                head.setImageBitmap(imgURL);
 
-            }
 
         }
 
 
-        imgbutton.setOnClickListener(new View.OnClickListener() {
+       imgbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -183,10 +194,11 @@ public class TnTGames extends AppCompatActivity {
                 jsonObject = new JsonParser().parse(response.toString()).getAsJsonObject();
 
 
-                 imgURL = "https://cravatar.eu/head/"
+                 String iURL = "https://cravatar.eu/head/"
                         + jsonObject.getAsJsonObject("player").get("uuid").toString().replace("\"", "")
                         + "?254";
-                Bitmap bitmap = BitmapFactory.decodeStream((InputStream) new URL(imgURL).getContent());
+                 imgURL = BitmapFactory.decodeStream((InputStream) new URL(iURL).getContent());
+
 
                  username1 = jsonObject.getAsJsonObject("player").get("playername").toString().replace("\"", "");
 
@@ -342,7 +354,7 @@ public class TnTGames extends AppCompatActivity {
                 finish = true;
 
             }catch(Exception e){
-
+                finish = true;
             }
 
         }

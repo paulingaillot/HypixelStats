@@ -9,8 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
@@ -26,13 +28,14 @@ public class MainActivity extends AppCompatActivity {
 
         this.button = (Button) findViewById(R.id.button);
 
-
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-
-        StrictMode.setThreadPolicy(policy);
-
-        AdView adView = new AdView(this);
-        adView.setAdSize(AdSize.BANNER);adView.setAdUnitId("ca-app-pub-6251821844352758/2468640651");
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        AdView  mAdView = findViewById(R.id.adView2);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -45,9 +48,9 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent Stats = new Intent(getApplicationContext(), Stats.class);
                 Stats.putExtra("username", username);
-                setContentView(R.layout.activity_waiting);
+               // setContentView(R.layout.activity_waiting);
+
                 startActivity(Stats);
-                finish();
 
             }
         });

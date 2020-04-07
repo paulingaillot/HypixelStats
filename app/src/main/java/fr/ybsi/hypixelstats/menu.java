@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
 import org.w3c.dom.Text;
@@ -26,10 +28,12 @@ public class menu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        MobileAds.initialize(this, "ca-app-pub-6251821844352758~2907624350");
-
 
         setContentView(R.layout.activity_menu);
+
+        AdView mAdView = findViewById(R.id.adView3);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         Intent intent = getIntent();
         final String user = intent.getStringExtra("username");

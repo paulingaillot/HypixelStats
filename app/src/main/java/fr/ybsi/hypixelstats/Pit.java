@@ -12,11 +12,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -37,44 +40,93 @@ public class Pit extends AppCompatActivity {
     private TextView renown_upgrade;
     private ImageView head;
 
+    private String username1;
+    private String prestige1;
+    private String xp1;
+    private String mess;
+    private String renown1;
+    private Long lastconnexion1;
+    private String money1;
+    private Bitmap imgURL;
+
+    private boolean finish = false;
+    private String user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        MobileAds.initialize(this, "ca-app-pub-6251821844352758~2907624350");
+        setContentView(R.layout.activity_waiting);
 
+        AdView mAdView1 = findViewById(R.id.adView9);
+        AdRequest adRequest1 = new AdRequest.Builder().build();
+        mAdView1.loadAd(adRequest1);
 
-        setContentView(R.layout.activity_pit);
-
-        this.imgbutton = (ImageView) findViewById(R.id.imageView8);
-        this.username = (TextView) findViewById(R.id.username);
-        this.lastconnexion = findViewById(R.id.lastconnexion);
-        this.xp = findViewById(R.id.xp);
-        this.money = findViewById(R.id.money);
-        this.renown = findViewById(R.id.renown);
-        this.renown_upgrade = findViewById(R.id.renown_upgrade);
-        this.prestige = findViewById(R.id.prestige);
-        this.head = findViewById(R.id.imageView10);
         Intent intent = getIntent();
-        final String user = intent.getStringExtra("username");
+        user = intent.getStringExtra("username");
 
 
-        imgbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        new Thread(background).start();
 
-                Intent Menu = new Intent(getApplicationContext(), menu.class);
-                Menu.putExtra("username", user);
-                startActivity(Menu);
-                finish();
-            }
-        });
+        while(!finish) {
+            continue;
+        }
+        if(finish) {
+            setContentView(R.layout.activity_pit);
+
+            AdView mAdView = findViewById(R.id.adView4);
+            AdRequest adRequest = new AdRequest.Builder().build();
+            mAdView.loadAd(adRequest);
+
+            this.imgbutton = (ImageView) findViewById(R.id.imageView8);
+            this.username = (TextView) findViewById(R.id.username);
+            this.lastconnexion = findViewById(R.id.lastconnexion);
+            this.xp = findViewById(R.id.xp);
+            this.money = findViewById(R.id.money);
+            this.renown = findViewById(R.id.renown);
+            this.renown_upgrade = findViewById(R.id.renown_upgrade);
+            this.prestige = findViewById(R.id.prestige);
+            this.head = findViewById(R.id.imageView10);
+
+            username.setText(username1);
+            prestige.setText(prestige1);
+            xp.setText(xp1);
+            renown.setText(renown1);
+            money.setText(money1);
+            renown_upgrade.setText(mess);
+
+            Calendar calendar1 = Calendar.getInstance();
+            calendar1.setTimeInMillis(lastconnexion1);
+            int mYear1 = calendar1.get(Calendar.YEAR);
+            int mMonth1 = calendar1.get(Calendar.MONTH) + 1;
+            int mDay1 = calendar1.get(Calendar.DAY_OF_MONTH);
+            int mHour1 = calendar1.get(Calendar.HOUR_OF_DAY);
+            int mMinute1 = calendar1.get(Calendar.MINUTE);
+            int mSecond1 = calendar1.get(Calendar.SECOND);
+
+            lastconnexion.setText(mDay1+"/"+mMonth1+"/"+mYear1+" "+mHour1+":"+mMinute1+":"+mSecond1);
+            head.setImageBitmap(imgURL);
+
+
+            imgbutton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    Intent Menu = new Intent(getApplicationContext(), menu.class);
+                    Menu.putExtra("username", user);
+                    startActivity(Menu);
+                    finish();
+                }
+            });
+        }
 
 
 
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 
-            StrictMode.setThreadPolicy(policy);
+    }
 
+    Runnable background = new Runnable() {
+        @Override
+        public void run() {
 
             URL url = null;
             HttpURLConnection con = null;
@@ -83,13 +135,13 @@ public class Pit extends AppCompatActivity {
             JsonObject jsonObject;
 
             key = "f0286aa9-4f44-48b8-8d04-90e9a45a4250";
-        try {
+            try {
 
                 url = new URL("https://api.hypixel.net/player?key=" + key + "&name="+user);
 
 
 
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
                 urlConnection.setDoOutput(true);
                 urlConnection.setChunkedStreamingMode(0);
@@ -106,16 +158,15 @@ public class Pit extends AppCompatActivity {
 
 
 
-                String imgURL = "https://cravatar.eu/head/"
+                String iURL = "https://cravatar.eu/head/"
                         + jsonObject.getAsJsonObject("player").get("uuid").toString().replace("\"", "")
                         + "?254";
-                Bitmap bitmap = BitmapFactory.decodeStream((InputStream) new URL(imgURL).getContent());
-                head.setImageBitmap(bitmap);
+                imgURL = BitmapFactory.decodeStream((InputStream) new URL(iURL).getContent());
 
-                String username1 = jsonObject.getAsJsonObject("player").get("playername").toString().replace("\"", "");
-                username.setText(username1);
+                 username1 = jsonObject.getAsJsonObject("player").get("playername").toString().replace("\"", "");
 
-                String prestige1;
+
+
                 try {
                     prestige1 = jsonObject.getAsJsonObject("player").getAsJsonObject("stats")
                             .getAsJsonObject("Pit").getAsJsonObject("profile").getAsJsonArray("prestiges")
@@ -126,9 +177,9 @@ public class Pit extends AppCompatActivity {
                 } catch (Exception e) {
                     prestige1 = "0";
                 }
-                prestige.setText(prestige1);
 
-                String xp1;
+
+
                 try {
                     xp1 = jsonObject.getAsJsonObject("player").getAsJsonObject("stats")
                             .getAsJsonObject("Pit").getAsJsonObject("profile").get("xp").toString()
@@ -136,9 +187,9 @@ public class Pit extends AppCompatActivity {
                 } catch (Exception e) {
                     xp1 = "0";
                 }
-                xp.setText(xp1);
 
-                String renown1;
+
+
                 try {
                     renown1 = jsonObject.getAsJsonObject("player").getAsJsonObject("stats")
                             .getAsJsonObject("Pit").getAsJsonObject("profile").get("renown").toString()
@@ -146,17 +197,18 @@ public class Pit extends AppCompatActivity {
                 } catch (Exception e) {
                     renown1 = "0";
                 }
-                renown.setText(renown1);
 
-                String money1;
+
+
                 try {
                     money1 = jsonObject.getAsJsonObject("player").getAsJsonObject("stats")
                             .getAsJsonObject("Pit").getAsJsonObject("profile").get("cash").toString()
-                            .replace("\"", "");
+                            .replace("\"", "").substring(0,6);
                 } catch (Exception e) {
                     money1 = "0";
                 }
-                money.setText(money1);
+
+
 
                 HashMap<String, HashMap<String, String>> renown_unlocks = new HashMap();
                 try {
@@ -183,18 +235,20 @@ public class Pit extends AppCompatActivity {
                 } catch (NullPointerException i) {
                     // empty catch block
                 }
-                String mess = "";
+                 mess = "";
                 try {
                     for (HashMap i : renown_unlocks.values()) {
                         mess = String.valueOf(mess) + ((String) i.get("key")).replaceAll("\"", "")
-                                + " : **Tier** " + (Integer.parseInt((String) i.get("tier")) + 1) + " \n";
+                                + " : Tier " + (Integer.parseInt((String) i.get("tier")) + 1) + " \n";
                     }
                 } catch (NullPointerException e) {
-                        mess = "vous n'avez pas encore débloqué de d'amelioration grace aux renown.";
+                    mess = "Vous n'avez pas encore débloqué de d'ameliorations grâce aux renown.";
                 }
-                renown_upgrade.setText(mess);
+                mess= mess.replaceAll("unlock_perk_","");
+                mess = mess.replaceAll("_", " ");
 
-                long lastconnexion1;
+
+
                 try {
                     lastconnexion1 = Long.parseLong(
                             jsonObject.getAsJsonObject("player").getAsJsonObject("stats").getAsJsonObject("Pit")
@@ -202,20 +256,16 @@ public class Pit extends AppCompatActivity {
                 } catch (Exception e) {
                     lastconnexion1 = 1L;
                 }
-                Calendar calendar1 = Calendar.getInstance();
-                calendar1.setTimeInMillis(lastconnexion1);
-                int mYear1 = calendar1.get(Calendar.YEAR);
-                int mMonth1 = calendar1.get(Calendar.MONTH) + 1;
-                int mDay1 = calendar1.get(Calendar.DAY_OF_MONTH);
-                int mHour1 = calendar1.get(Calendar.HOUR_OF_DAY);
-                int mMinute1 = calendar1.get(Calendar.MINUTE);
-                int mSecond1 = calendar1.get(Calendar.SECOND);
 
-                lastconnexion.setText(mDay1+"/"+mMonth1+"/"+mYear1+" "+mHour1+":"+mMinute1+":"+mSecond1);
 
-        }catch (Exception e){
+
+
+                finish = true;
+
+            }catch (Exception e){
+
+            }
 
         }
-
-    }
+    };
 }

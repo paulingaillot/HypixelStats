@@ -11,11 +11,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -35,12 +38,43 @@ public class BedWars extends AppCompatActivity {
     private TextView level;
     private TextView losses;
 
+    private boolean finish = false;
+    private String user;
+
+    private String username1;
+    private String kill;
+    private String death;
+    private String coins;
+    private Bitmap imgURL;
+    private String wins2;
+    private String parties_jouées;
+    private String level1;
+    private String beds_broken_bedwars;
+    private String losse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bed_wars);
-        MobileAds.initialize(this, "ca-app-pub-6251821844352758~2907624350");
+        setContentView(R.layout.activity_waiting);
+
+        AdView mAdView1 = findViewById(R.id.adView9);
+        AdRequest adRequest1 = new AdRequest.Builder().build();
+        mAdView1.loadAd(adRequest1);
+
+        Intent intent = getIntent();
+        user = intent.getStringExtra("username");
+
+
+        new Thread(background).start();
+
+        while(!finish) {
+            continue;
+        }
+        if(finish) {
+            setContentView(R.layout.activity_bed_wars);
+        AdView mAdView = findViewById(R.id.adView5);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         this.imgButton = (ImageView) findViewById(R.id.imageView8);
         this.username = findViewById(R.id.username);
@@ -54,8 +88,34 @@ public class BedWars extends AppCompatActivity {
         this.money = findViewById(R.id.money);
         this.level = findViewById(R.id.level);
 
-        Intent intent = getIntent();
-        final String user = intent.getStringExtra("username");
+        imgButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent Menu = new Intent(getApplicationContext(), menu.class);
+                Menu.putExtra("username", user);
+                startActivity(Menu);
+                finish();
+            }
+        });
+
+            username.setText(username1);
+            money.setText(coins);
+            level.setText(level1);
+            kills.setText(kill);
+            deaths.setText(death);
+            play.setText(parties_jouées);
+            bed.setText(beds_broken_bedwars);
+            wins.setText(wins2);
+            losses.setText(losse);
+
+            try {
+
+                head.setImageBitmap(imgURL);
+            }catch(Exception e){
+
+            }
+        }
 
         imgButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,125 +128,123 @@ public class BedWars extends AppCompatActivity {
             }
         });
 
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-
-        StrictMode.setThreadPolicy(policy);
-
-
-        URL url = null;
-        HttpURLConnection con = null;
-        String inputLine;
-        String key;
-        JsonObject jsonObject;
-
-        key = "f0286aa9-4f44-48b8-8d04-90e9a45a4250";
-        try {
-
-            url = new URL("https://api.hypixel.net/player?key=" + key + "&name=" + user);
-
-
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-
-            urlConnection.setDoOutput(true);
-            urlConnection.setChunkedStreamingMode(0);
-
-            BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-
-            StringBuffer response = new StringBuffer();
-            while ((inputLine = in.readLine()) != null) {
-                response.append(inputLine);
-            }
-            in.close();
-
-            jsonObject = new JsonParser().parse(response.toString()).getAsJsonObject();
-
-
-            String imgURL = "https://cravatar.eu/head/"
-                    + jsonObject.getAsJsonObject("player").get("uuid").toString().replace("\"", "")
-                    + "?254";
-            Bitmap bitmap = BitmapFactory.decodeStream((InputStream) new URL(imgURL).getContent());
-            head.setImageBitmap(bitmap);
-
-            String username1 = jsonObject.getAsJsonObject("player").get("playername").toString().replace("\"", "");
-            username.setText(username1);
-
-            String coins;
-            try {
-                coins = jsonObject.getAsJsonObject("player").getAsJsonObject("stats")
-                        .getAsJsonObject("Bedwars").get("coins").toString().replace("\"", "");
-            } catch (NullPointerException e) {
-                coins = "0";
-            }
-            money.setText(coins);
-
-            String level1;
-            try {
-                level1 = jsonObject.getAsJsonObject("player").getAsJsonObject("achievements")
-                        .get("bedwars_level").toString().replace("\"", "");
-            } catch (NullPointerException e) {
-                level1 = "0";
-            }
-            level.setText(level1);
-
-            String kill;
-            try {
-                kill = jsonObject.getAsJsonObject("player").getAsJsonObject("stats")
-                        .getAsJsonObject("Bedwars").get("kills_bedwars").toString().replace("\"", "");
-            } catch (NullPointerException e) {
-                kill = "0";
-            }
-            kills.setText(kill);
-
-            String death;
-            try {
-                death = jsonObject.getAsJsonObject("player").getAsJsonObject("stats")
-                        .getAsJsonObject("Bedwars").get("deaths_bedwars").toString().replace("\"", "");
-            } catch (NullPointerException e) {
-                death = "0";
-            }
-            deaths.setText(death);
-
-            String parties_jouées;
-            try {
-                parties_jouées = jsonObject.getAsJsonObject("player").getAsJsonObject("stats")
-                        .getAsJsonObject("Bedwars").get("games_played_bedwars_1").toString()
-                        .replace("\"", "");
-            } catch (NullPointerException e) {
-                parties_jouées = "0";
-            }
-            play.setText(parties_jouées);
-
-            String beds_broken_bedwars;
-            try {
-                beds_broken_bedwars = jsonObject.getAsJsonObject("player").getAsJsonObject("stats")
-                        .getAsJsonObject("Bedwars").get("beds_broken_bedwars").toString().replace("\"", "");
-            } catch (NullPointerException e) {
-                beds_broken_bedwars = "0";
-            }
-            bed.setText(beds_broken_bedwars);
-
-            String wins2;
-            try {
-                wins2 = jsonObject.getAsJsonObject("player").getAsJsonObject("achievements")
-                        .get("bedwars_wins").toString().replace("\"", "");
-            } catch (NullPointerException e) {
-                wins2 = "0";
-            }
-            wins.setText(wins2);
-
-            String losse;
-            try {
-                losse = jsonObject.getAsJsonObject("player").getAsJsonObject("stats")
-                        .getAsJsonObject("Bedwars").get("losses_bedwars").toString().replace("\"", "");
-            } catch (NullPointerException e) {
-                losse = "0";
-            }
-            losses.setText(losse);
-
-
-        }catch (Exception e){
-
-        }
-
     }
+
+    Runnable background = new Runnable() {
+
+        @Override
+        public void run() {
+
+            URL url = null;
+            HttpURLConnection con = null;
+            String inputLine;
+            String key;
+            JsonObject jsonObject;
+
+            key = "f0286aa9-4f44-48b8-8d04-90e9a45a4250";
+            try {
+
+
+                url = new URL("https://api.hypixel.net/player?key=" + key + "&name=" + user);
+
+
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
+                urlConnection.setDoOutput(true);
+                urlConnection.setChunkedStreamingMode(0);
+
+                BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+
+                StringBuffer response = new StringBuffer();
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
+                }
+                in.close();
+
+                jsonObject = new JsonParser().parse(response.toString()).getAsJsonObject();
+
+
+                 String url1 = "https://cravatar.eu/head/"
+                        + jsonObject.getAsJsonObject("player").get("uuid").toString().replace("\"", "")
+                        + "?254";
+                 imgURL = BitmapFactory.decodeStream((InputStream) new URL(url1).getContent());
+
+
+                 username1 = jsonObject.getAsJsonObject("player").get("playername").toString().replace("\"", "");
+
+
+                try {
+                    coins = jsonObject.getAsJsonObject("player").getAsJsonObject("stats")
+                            .getAsJsonObject("Bedwars").get("coins").toString().replace("\"", "");
+                } catch (NullPointerException e) {
+                    coins = "0";
+                }
+
+
+                try {
+                    level1 = jsonObject.getAsJsonObject("player").getAsJsonObject("achievements")
+                            .get("bedwars_level").toString().replace("\"", "");
+                } catch (NullPointerException e) {
+                    level1 = "0";
+                }
+
+
+                try {
+                    kill = jsonObject.getAsJsonObject("player").getAsJsonObject("stats")
+                            .getAsJsonObject("Bedwars").get("kills_bedwars").toString().replace("\"", "");
+                } catch (NullPointerException e) {
+                    kill = "0";
+                }
+
+
+                try {
+                    death = jsonObject.getAsJsonObject("player").getAsJsonObject("stats")
+                            .getAsJsonObject("Bedwars").get("deaths_bedwars").toString().replace("\"", "");
+                } catch (NullPointerException e) {
+                    death = "0";
+                }
+
+
+                try {
+                    parties_jouées = jsonObject.getAsJsonObject("player").getAsJsonObject("stats")
+                            .getAsJsonObject("Bedwars").get("games_played_bedwars_1").toString()
+                            .replace("\"", "");
+                } catch (NullPointerException e) {
+                    parties_jouées = "0";
+                }
+
+
+                try {
+                    beds_broken_bedwars = jsonObject.getAsJsonObject("player").getAsJsonObject("stats")
+                            .getAsJsonObject("Bedwars").get("beds_broken_bedwars").toString().replace("\"", "");
+                } catch (NullPointerException e) {
+                    beds_broken_bedwars = "0";
+                }
+
+
+
+                try {
+                    wins2 = jsonObject.getAsJsonObject("player").getAsJsonObject("achievements")
+                            .get("bedwars_wins").toString().replace("\"", "");
+                } catch (NullPointerException e) {
+                    wins2 = "0";
+                }
+
+
+
+                try {
+                    losse = jsonObject.getAsJsonObject("player").getAsJsonObject("stats")
+                            .getAsJsonObject("Bedwars").get("losses_bedwars").toString().replace("\"", "");
+                } catch (NullPointerException e) {
+                    losse = "0";
+                }
+
+                finish = true;
+
+            } catch (Exception e) {
+
+            }
+        }
+    };
+
 }

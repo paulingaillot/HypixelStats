@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -38,7 +40,7 @@ public class SkyWars extends AppCompatActivity {
 
     private static boolean finish = false;
     private static String username1;
-    private static String imgURL;
+    private static Bitmap imgURL;
     private static String Temps_de_jeu;
     private static String kills1;
     private static String wins1;
@@ -51,9 +53,25 @@ public class SkyWars extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        MobileAds.initialize(this, "ca-app-pub-6251821844352758~2907624350");
+        setContentView(R.layout.activity_waiting);
 
+        AdView mAdView1 = findViewById(R.id.adView9);
+        AdRequest adRequest1 = new AdRequest.Builder().build();
+        mAdView1.loadAd(adRequest1);
+
+        Intent intent = getIntent();
+        user = intent.getStringExtra("username");
+        new Thread(background).start();
+
+        while(!finish) {
+            continue;
+        }
+        if(finish) {
         setContentView(R.layout.activity_sky_wars);
+
+        AdView mAdView = findViewById(R.id.adView6);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         this.imgbutton = (ImageView) findViewById(R.id.imageView8);
         this.head = findViewById(R.id.imageView10);
@@ -65,8 +83,6 @@ public class SkyWars extends AppCompatActivity {
         this.wins = findViewById(R.id.wins);
         this.kills = findViewById(R.id.kills);
 
-        Intent intent = getIntent();
-        user = intent.getStringExtra("username");
 
         imgbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,12 +95,8 @@ public class SkyWars extends AppCompatActivity {
             }
         });
 
-        new Thread(background).start();
 
-        while(!finish) {
-            continue;
-        }
-        if(finish) {
+
             username.setText(username1+"");
             money.setText(coins);
             heads.setText(heads1);
@@ -93,12 +105,9 @@ public class SkyWars extends AppCompatActivity {
             wins.setText(wins1);
             kills.setText(kills1);
 
-            try {
-                Bitmap bitmap = BitmapFactory.decodeStream((InputStream) new URL(imgURL).getContent());
-                head.setImageBitmap(bitmap);
-            }catch(Exception e){
 
-            }
+                head.setImageBitmap(imgURL);
+
 
         }
 
@@ -138,9 +147,10 @@ public class SkyWars extends AppCompatActivity {
                 jsonObject = new JsonParser().parse(response.toString()).getAsJsonObject();
 
 
-                imgURL = "https://cravatar.eu/head/"
+                String iURL = "https://cravatar.eu/head/"
                         + jsonObject.getAsJsonObject("player").get("uuid").toString().replace("\"", "")
                         + "?254";
+                 imgURL = BitmapFactory.decodeStream((InputStream) new URL(iURL).getContent());
 
                  username1 = jsonObject.getAsJsonObject("player").get("playername").toString().replace("\"", "");
 
