@@ -1,20 +1,15 @@
 package fr.ybsi.hypixelstats;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -23,7 +18,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Calendar;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SkyWars extends AppCompatActivity {
 
@@ -205,7 +201,7 @@ public class SkyWars extends AppCompatActivity {
                 finish = true;
 
             }catch(Exception e){
-
+                finish = true;
             }
 
 

@@ -12,66 +12,88 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginStart="3dp"
-        android:layout_marginLeft="3dp"
         android:scaleType="fitXY"
-        app:layout_constraintStart_toStartOf="@+id/adView8"
+        app:layout_constraintStart_toStartOf="@+id/textView84"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/fond" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#65000000"
+        app:layout_constraintBottom_toTopOf="@+id/adView8"
+        app:layout_constraintStart_toStartOf="@+id/textView80"
+        app:srcCompat="@drawable/transpa" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="0dp"
+        android:layout_height="209dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginRight="7dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/textView81"
+        app:layout_constraintEnd_toStartOf="@+id/textView85"
+        app:layout_constraintStart_toEndOf="@+id/wins_tntrun"
+        app:layout_constraintTop_toBottomOf="@+id/textView81"
+        app:srcCompat="@drawable/blacksquare" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="2dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView17"
+        app:layout_constraintEnd_toStartOf="@+id/textView90"
+        app:layout_constraintStart_toEndOf="@+id/win_pvprun"
+        app:layout_constraintTop_toTopOf="@+id/textView78"
+        app:srcCompat="@drawable/blacksquare" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="34dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginLeft="21dp"
         android:layout_marginTop="26dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="20dp"
         android:text="TnTGames Stats"
+        android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/wins_tnttag"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView19"
+        app:layout_constraintEnd_toEndOf="@+id/imageView7"
+        app:layout_constraintStart_toEndOf="@+id/imageView19"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginLeft="13dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="@+id/textView85"
-        app:layout_constraintStart_toStartOf="@+id/imageView7"
-        app:layout_constraintTop_toTopOf="@+id/imageView7"
+        android:layout_height="51dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/death_tntrun"
+        app:layout_constraintStart_toStartOf="@+id/textView32"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_dialog_dialer" />
 
     <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="73dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
-
-    <ImageView
         android:id="@+id/imageView10"
-        android:layout_width="0dp"
+        android:layout_width="174dp"
         android:layout_height="160dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="85dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="85dp"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
+        android:layout_marginBottom="111dp"
         app:layout_constraintBottom_toTopOf="@+id/wins_bow"
-        app:layout_constraintEnd_toEndOf="@+id/imageView7"
-        app:layout_constraintStart_toEndOf="@+id/username"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView"
         app:srcCompat="@mipmap/ic_launcher" />
 
@@ -81,22 +103,25 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="59dp"
         android:text="Username :"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/username"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView12" />
 
     <TextView
         android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/textView32"
-        app:layout_constraintTop_toTopOf="@+id/imageView10" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView32"
+        app:layout_constraintStart_toEndOf="@+id/textView32" />
 
     <TextView
         android:id="@+id/textView49"
@@ -104,10 +129,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="27dp"
         android:text="Money :"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:autoSizeTextType="uniform"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
@@ -115,12 +142,12 @@
         android:id="@+id/money"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="26dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginLeft="17dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/wins"
-        app:layout_constraintEnd_toStartOf="@+id/imageView10" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView49"
+        app:layout_constraintStart_toEndOf="@+id/textView49" />
 
     <TextView
         android:id="@+id/textView53"
@@ -128,60 +155,66 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="21dp"
         android:text="Wins :"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView49" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBaseline_toBaselineOf="@+id/wins"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/wins"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="24dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
-        app:layout_constraintStart_toStartOf="@+id/money" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintStart_toEndOf="@+id/textView53"
+        app:layout_constraintTop_toBottomOf="@+id/textView49" />
 
     <TextView
         android:id="@+id/TNTRun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
         android:text="TNTRun"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView77"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/imageView7" />
 
     <TextView
         android:id="@+id/textView77"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginLeft="7dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginBottom="24dp"
         android:text="PVPRun"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView78"
-        app:layout_constraintStart_toStartOf="@+id/textView85" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/wins_tntrun"
+        app:layout_constraintStart_toEndOf="@+id/imageView17" />
 
     <TextView
         android:id="@+id/textView78"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="26dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
         android:text="BowSpleef"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/wins_tnttag"
-        app:layout_constraintEnd_toStartOf="@+id/textView79" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toStartOf="@+id/imageView14"
+        app:layout_constraintTop_toTopOf="@+id/textView79" />
 
     <TextView
         android:id="@+id/textView79"
@@ -190,18 +223,26 @@
         android:layout_marginEnd="17dp"
         android:layout_marginRight="17dp"
         android:text="TNTTag"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView78"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/textView77"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView77" />
 
     <TextView
         android:id="@+id/textView80"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="26dp"
+        android:layout_marginRight="26dp"
         android:text="Wins :"
+        android:textColor="#000000"
         android:textStyle="bold"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBaseline_toBaselineOf="@+id/wins_tntrun"
+        app:layout_constraintEnd_toStartOf="@+id/wins_tntrun"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -209,168 +250,234 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Deaths : "
+        android:textColor="#000000"
         android:textStyle="bold"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBaseline_toBaselineOf="@+id/death_tntrun"
         app:layout_constraintStart_toStartOf="@+id/imageView7" />
 
     <TextView
         android:id="@+id/textView82"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="37dp"
         android:text="Double Jump :"
+        android:textColor="#000000"
+        android:textSize="10sp"
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/db_tntrun"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/textView89"
+        app:layout_constraintEnd_toEndOf="@+id/textView84"
+        app:layout_constraintStart_toStartOf="@+id/imageView7"
+        app:layout_constraintTop_toTopOf="@+id/textView81" />
 
     <TextView
         android:id="@+id/textView83"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SpeedPotion :"
+        android:layout_width="0dp"
+        android:layout_height="31dp"
+        android:text="Speed Potion :"
+        android:textColor="#000000"
+        android:textSize="10sp"
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/spp_tntrun"
-        app:layout_constraintStart_toStartOf="@+id/imageView7" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/spp_tntrun"
+        app:layout_constraintEnd_toEndOf="@+id/textView82"
+        app:layout_constraintStart_toStartOf="@+id/imageView7"
+        app:layout_constraintTop_toBottomOf="@+id/spp_tntrun" />
 
     <TextView
         android:id="@+id/textView84"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
         android:text="Slowless Potion :"
+        android:textColor="#000000"
+        android:textSize="10sp"
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/slp_tntrun"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/slp_tntrun"
+        app:layout_constraintEnd_toStartOf="@+id/wins_tntrun"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/slp_tntrun" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView8"
         android:layout_width="0dp"
-        android:layout_height="49dp"
-        android:layout_marginBottom="1dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
         app:adSize="BANNER"
         app:adUnitId="ca-app-pub-6251821844352758/2468640651"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView84" />
 
     <TextView
         android:id="@+id/textView85"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="26dp"
-        android:layout_marginRight="26dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="Wins :"
+        android:textColor="#000000"
         android:textStyle="bold"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBaseline_toBaselineOf="@+id/win_pvprun"
-        app:layout_constraintEnd_toStartOf="@+id/kills_pvprun" />
+        app:layout_constraintEnd_toStartOf="@+id/win_pvprun"
+        app:layout_constraintStart_toEndOf="@+id/imageView17" />
 
     <TextView
         android:id="@+id/textView86"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:text="Kills :"
+        android:textColor="#000000"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView87"
-        app:layout_constraintTop_toTopOf="@+id/death_tntrun" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBaseline_toBaselineOf="@+id/kills_pvprun"
+        app:layout_constraintStart_toEndOf="@+id/imageView17" />
 
     <TextView
         android:id="@+id/textView87"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:text="Deaths :"
+        android:textColor="#000000"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/db_tntrun"
-        app:layout_constraintTop_toBottomOf="@+id/textView86" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBaseline_toBaselineOf="@+id/deaths_pvprun"
+        app:layout_constraintStart_toEndOf="@+id/imageView17" />
 
     <TextView
         android:id="@+id/textView88"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:text="Double Jump :"
+        android:textColor="#000000"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/slp_tntrun"
-        app:layout_constraintStart_toEndOf="@+id/spp_tntrun" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBaseline_toBaselineOf="@+id/db_pvprun"
+        app:layout_constraintStart_toEndOf="@+id/imageView17" />
 
     <TextView
         android:id="@+id/textView89"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginLeft="9dp"
+        android:layout_width="50dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="68dp"
         android:text="Survival Record :"
+        android:textColor="#000000"
+        android:textSize="10sp"
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/survived_pvprun"
-        app:layout_constraintStart_toEndOf="@+id/slp_tntrun" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/adView8"
+        app:layout_constraintEnd_toStartOf="@+id/survived_pvprun"
+        app:layout_constraintStart_toStartOf="@+id/imageView17"
+        app:layout_constraintTop_toTopOf="@+id/textView92" />
 
     <TextView
         android:id="@+id/textView90"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginBottom="22dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
         android:text="Wins :"
+        android:textColor="#000000"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView91"
-        app:layout_constraintStart_toStartOf="@+id/textView91" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toStartOf="@+id/wins_tnttag"
+        app:layout_constraintStart_toEndOf="@+id/imageView16"
+        app:layout_constraintTop_toTopOf="@+id/imageView16" />
 
     <TextView
         android:id="@+id/textView91"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="13dp"
-        android:layout_marginRight="13dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="24dp"
         android:text="Deaths :"
+        android:textColor="#000000"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tags_tnttags"
-        app:layout_constraintEnd_toStartOf="@+id/death_tnttag" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintStart_toEndOf="@+id/imageView16"
+        app:layout_constraintTop_toBottomOf="@+id/textView90" />
 
     <TextView
         android:id="@+id/textView92"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:layout_marginLeft="11dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="18dp"
         android:text="Tags :"
+        android:textColor="#000000"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/deaths_pvprun"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintStart_toEndOf="@+id/imageView16"
         app:layout_constraintTop_toBottomOf="@+id/textView91" />
 
     <TextView
         android:id="@+id/textView93"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="228dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
         android:text="Wins"
+        android:textColor="#000000"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView79"
-        app:layout_constraintStart_toStartOf="@+id/textView79" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toStartOf="@+id/wins_bow"
+        app:layout_constraintStart_toEndOf="@+id/imageView14"
+        app:layout_constraintTop_toTopOf="@+id/imageView14" />
 
     <TextView
         android:id="@+id/textView94"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="24dp"
         android:text="Kills"
+        android:textColor="#000000"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/textView93"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintStart_toEndOf="@+id/imageView14"
         app:layout_constraintTop_toBottomOf="@+id/textView93" />
 
     <TextView
         android:id="@+id/wins_tntrun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="231dp"
         android:text="0"
-        app:layout_constraintStart_toStartOf="@+id/death_tntrun"
-        app:layout_constraintTop_toBottomOf="@+id/TNTRun" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView17"
+        app:layout_constraintStart_toEndOf="@+id/textView80" />
 
     <TextView
         android:id="@+id/death_tntrun"
@@ -378,8 +485,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="24dp"
         android:text="0"
+        app:autoSizeTextType="uniform"
         app:layout_constraintStart_toEndOf="@+id/textView81"
         app:layout_constraintTop_toBottomOf="@+id/wins_tntrun" />
 
@@ -387,21 +495,25 @@
         android:id="@+id/db_tntrun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginLeft="9dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="4dp"
         android:text="0"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView87"
-        app:layout_constraintStart_toEndOf="@+id/textView82" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintStart_toEndOf="@+id/textView82"
+        app:layout_constraintTop_toTopOf="@+id/textView82" />
 
     <TextView
         android:id="@+id/spp_tntrun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginLeft="9dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="5dp"
         android:text="0"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView88"
-        app:layout_constraintStart_toEndOf="@+id/textView83" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintStart_toEndOf="@+id/textView83"
+        app:layout_constraintTop_toBottomOf="@+id/textView82" />
 
     <TextView
         android:id="@+id/slp_tntrun"
@@ -410,72 +522,90 @@
         android:layout_marginStart="6dp"
         android:layout_marginLeft="6dp"
         android:text="0"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView17"
         app:layout_constraintStart_toEndOf="@+id/textView84"
-        app:layout_constraintTop_toTopOf="@+id/textView89" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView17" />
 
     <TextView
         android:id="@+id/win_pvprun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginLeft="14dp"
-        android:layout_marginBottom="22dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
         android:text="0"
-        app:layout_constraintBottom_toTopOf="@+id/kills_pvprun"
-        app:layout_constraintStart_toEndOf="@+id/textView85" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toStartOf="@+id/imageView16"
+        app:layout_constraintStart_toEndOf="@+id/textView85"
+        app:layout_constraintTop_toBottomOf="@+id/textView77" />
 
     <TextView
         android:id="@+id/kills_pvprun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginBottom="16dp"
         android:text="0"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView86"
-        app:layout_constraintStart_toEndOf="@+id/textView87" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/textView87"
+        app:layout_constraintStart_toEndOf="@+id/textView86" />
 
     <TextView
         android:id="@+id/deaths_pvprun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginBottom="18dp"
         android:text="0"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView92"
-        app:layout_constraintEnd_toStartOf="@+id/db_pvprun" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/textView88"
+        app:layout_constraintStart_toEndOf="@+id/textView87" />
 
     <TextView
         android:id="@+id/db_pvprun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginLeft="6dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginBottom="30dp"
         android:text="0"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView88"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView16"
         app:layout_constraintStart_toEndOf="@+id/textView88" />
 
     <TextView
         android:id="@+id/survived_pvprun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginBottom="26dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="4dp"
         android:text="0"
-        app:layout_constraintBottom_toTopOf="@+id/adView8"
-        app:layout_constraintStart_toEndOf="@+id/textView89" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/textView89"
+        app:layout_constraintEnd_toEndOf="@+id/textView88" />
 
     <TextView
         android:id="@+id/wins_tnttag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="27dp"
+        android:layout_marginRight="27dp"
         android:text="0"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView90"
-        app:layout_constraintStart_toStartOf="@+id/death_tnttag" />
+        app:layout_constraintEnd_toStartOf="@+id/imageView14"
+        app:layout_constraintStart_toEndOf="@+id/textView90" />
 
     <TextView
         android:id="@+id/death_tnttag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView91"
         app:layout_constraintEnd_toEndOf="@+id/tags_tnttags"
         app:layout_constraintStart_toEndOf="@+id/tags_tnttags" />
@@ -484,28 +614,58 @@
         android:id="@+id/tags_tnttags"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginLeft="19dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
         android:text="0"
-        app:layout_constraintStart_toEndOf="@+id/textView92"
-        app:layout_constraintTop_toBottomOf="@+id/textView94" />
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView92"
+        app:layout_constraintStart_toEndOf="@+id/textView91" />
 
     <TextView
         android:id="@+id/wins_bow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginLeft="21dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginRight="38dp"
         android:text="0"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView93"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView93" />
 
     <TextView
         android:id="@+id/kills_bow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
         android:text="0"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView94"
-        app:layout_constraintStart_toStartOf="@+id/wins_bow" />
+        app:layout_constraintStart_toEndOf="@+id/textView94" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="3dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView16"
+        app:layout_constraintEnd_toStartOf="@+id/textView93"
+        app:layout_constraintStart_toEndOf="@+id/wins_tnttag"
+        app:layout_constraintTop_toTopOf="@+id/textView79"
+        app:srcCompat="@drawable/blacksquare" />
+
+    <ImageView
+        android:id="@+id/imageView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tntgames" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

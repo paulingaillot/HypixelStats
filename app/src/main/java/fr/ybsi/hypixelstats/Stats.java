@@ -1,22 +1,17 @@
 package fr.ybsi.hypixelstats;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -26,6 +21,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Calendar;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Stats extends AppCompatActivity {
 
@@ -446,8 +443,7 @@ public class Stats extends AppCompatActivity {
 
 
             } catch (Exception e) {
-              //  setContentView(R.layout.activity_stats);
-                Log.d("Error", "test : "+e.getLocalizedMessage());
+                finish = true;
             }
 
 
