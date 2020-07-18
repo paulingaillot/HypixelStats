@@ -25,6 +25,8 @@ public class menu extends AppCompatActivity {
     private TextView Murder;
     private TextView General;
 
+    private String user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +38,7 @@ public class menu extends AppCompatActivity {
         mAdView.loadAd(adRequest);
 
         Intent intent = getIntent();
-        final String user = intent.getStringExtra("username");
+        user = intent.getStringExtra("username");
 
         this.button = (Button) findViewById(R.id.button2);
         this.SkyWars = (TextView) findViewById(R.id.SkyWars);

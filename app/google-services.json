@@ -1,0 +1,41 @@
+{
+  "project_info": {
+    "project_number": "414670052763",
+    "firebase_url": "https://hypixel-stats-ee541.firebaseio.com",
+    "project_id": "hypixel-stats-ee541",
+    "storage_bucket": "hypixel-stats-ee541.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:414670052763:android:5587c88163cf4cabf4d53e",
+        "android_client_info": {
+          "package_name": "fr.ybsi.hypixelstats"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "414670052763-332tbtd4hrgscvlcv9m6uhcbmj8cc5u6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjIOe2_RCk0nxnmFFEV4Rb85gK6v0pGvY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "414670052763-332tbtd4hrgscvlcv9m6uhcbmj8cc5u6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-6251821844352758~2907624350"
+    }
+  ],
+  "configuration_version": "1"
+}

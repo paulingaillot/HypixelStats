@@ -21,8 +21,9 @@
         android:id="@+id/imageView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="54dp"
         android:background="#65000000"
-        app:layout_constraintBottom_toTopOf="@+id/adView8"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView80"
         app:srcCompat="@drawable/transpa" />
 
@@ -46,9 +47,9 @@
         android:layout_marginTop="3dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="6dp"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView17"
+        app:layout_constraintBottom_toBottomOf="@+id/survived_pvprun"
         app:layout_constraintEnd_toStartOf="@+id/textView90"
         app:layout_constraintStart_toEndOf="@+id/win_pvprun"
         app:layout_constraintTop_toTopOf="@+id/textView78"
@@ -61,8 +62,8 @@
         android:layout_marginStart="21dp"
         android:layout_marginLeft="21dp"
         android:layout_marginTop="26dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginRight="18dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
         android:layout_marginBottom="20dp"
         android:text="TnTGames Stats"
         android:textColor="#000000"
@@ -86,14 +87,17 @@
 
     <ImageView
         android:id="@+id/imageView10"
-        android:layout_width="174dp"
+        android:layout_width="0dp"
         android:layout_height="160dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
         android:layout_marginTop="112dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginRight="19dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
         android:layout_marginBottom="111dp"
         app:layout_constraintBottom_toTopOf="@+id/wins_bow"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/imageView16"
         app:layout_constraintTop_toTopOf="@+id/textView"
         app:srcCompat="@mipmap/ic_launcher" />
 
@@ -103,14 +107,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="59dp"
         android:text="Username :"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:autoSizeTextType="uniform"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView12" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/username"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/username"
@@ -118,9 +121,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="9dp"
         android:layout_marginLeft="9dp"
+        android:layout_marginBottom="32dp"
         android:text="TextView"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView32"
+        app:layout_constraintBottom_toTopOf="@+id/money"
         app:layout_constraintStart_toEndOf="@+id/textView32" />
 
     <TextView
@@ -129,14 +133,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="27dp"
         android:text="Money :"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:autoSizeTextType="uniform"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView32" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/money"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/money"
@@ -144,9 +147,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
         android:layout_marginLeft="17dp"
+        android:layout_marginBottom="25dp"
         android:text="TextView"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView49"
+        app:layout_constraintBottom_toTopOf="@+id/wins"
         app:layout_constraintStart_toEndOf="@+id/textView49" />
 
     <TextView
@@ -155,13 +159,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="244dp"
+        android:layout_marginBottom="244dp"
         android:text="Wins :"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBaseline_toBaselineOf="@+id/wins"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/textView83"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView19" />
 
     <TextView
         android:id="@+id/wins"
@@ -169,11 +176,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
         android:text="TextView"
         app:autoSizeTextType="uniform"
-        app:layout_constraintStart_toEndOf="@+id/textView53"
-        app:layout_constraintTop_toBottomOf="@+id/textView49" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView53"
+        app:layout_constraintStart_toEndOf="@+id/textView53" />
 
     <TextView
         android:id="@+id/TNTRun"
@@ -220,16 +226,18 @@
         android:id="@+id/textView79"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="256dp"
         android:layout_marginEnd="17dp"
         android:layout_marginRight="17dp"
+        android:layout_marginBottom="274dp"
         android:text="TNTTag"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@+id/textView77"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView77" />
+        app:layout_constraintTop_toTopOf="@+id/imageView12" />
 
     <TextView
         android:id="@+id/textView80"
@@ -262,19 +270,17 @@
         android:layout_height="31dp"
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
-        android:layout_marginTop="37dp"
         android:layout_marginEnd="2dp"
         android:layout_marginRight="2dp"
-        android:layout_marginBottom="37dp"
         android:text="Double Jump :"
         android:textColor="#000000"
         android:textSize="10sp"
         android:textStyle="bold"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toTopOf="@+id/textView89"
+        app:layout_constraintBottom_toBottomOf="@+id/textView87"
         app:layout_constraintEnd_toEndOf="@+id/textView84"
         app:layout_constraintStart_toStartOf="@+id/imageView7"
-        app:layout_constraintTop_toTopOf="@+id/textView81" />
+        app:layout_constraintTop_toBottomOf="@+id/textView87" />
 
     <TextView
         android:id="@+id/textView83"
@@ -313,7 +319,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="6dp"
-        android:layout_marginBottom="6dp"
+        android:layout_marginBottom="7dp"
         app:adSize="BANNER"
         app:adUnitId="ca-app-pub-6251821844352758/2468640651"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -380,7 +386,7 @@
         android:layout_height="28dp"
         android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="69dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="68dp"
@@ -392,7 +398,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/adView8"
         app:layout_constraintEnd_toStartOf="@+id/survived_pvprun"
         app:layout_constraintStart_toStartOf="@+id/imageView17"
-        app:layout_constraintTop_toTopOf="@+id/textView92" />
+        app:layout_constraintTop_toTopOf="@+id/textView87" />
 
     <TextView
         android:id="@+id/textView90"
@@ -472,10 +478,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="18dp"
         android:layout_marginRight="18dp"
-        android:layout_marginBottom="231dp"
+        android:layout_marginBottom="24dp"
         android:text="0"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/death_tntrun"
         app:layout_constraintEnd_toStartOf="@+id/imageView17"
         app:layout_constraintStart_toEndOf="@+id/textView80" />
 
@@ -485,11 +491,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginBottom="18dp"
         android:text="0"
         app:autoSizeTextType="uniform"
-        app:layout_constraintStart_toEndOf="@+id/textView81"
-        app:layout_constraintTop_toBottomOf="@+id/wins_tntrun" />
+        app:layout_constraintBottom_toTopOf="@+id/textView82"
+        app:layout_constraintStart_toEndOf="@+id/textView81" />
 
     <TextView
         android:id="@+id/db_tntrun"
@@ -509,7 +515,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="7dp"
         android:layout_marginLeft="7dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="4dp"
         android:text="0"
         app:autoSizeTextType="uniform"
         app:layout_constraintStart_toEndOf="@+id/textView83"
@@ -570,7 +576,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="31dp"
         android:text="0"
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="@+id/imageView16"
@@ -582,10 +588,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
         android:layout_marginRight="12dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="25dp"
         android:text="0"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@+id/textView89"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView12"
         app:layout_constraintEnd_toEndOf="@+id/textView88" />
 
     <TextView

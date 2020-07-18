@@ -82,8 +82,8 @@
         android:layout_width="0dp"
         android:layout_height="155dp"
         android:layout_marginTop="64dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginRight="13dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
         android:layout_marginBottom="64dp"
         app:layout_constraintBottom_toBottomOf="@+id/wins"
         app:layout_constraintEnd_toEndOf="parent"
@@ -164,8 +164,8 @@
         android:id="@+id/survived"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginLeft="13dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
         android:layout_marginBottom="32dp"
         android:text="0"
         android:textSize="18sp"
@@ -217,13 +217,12 @@
         android:id="@+id/kills"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="18dp"
-        android:layout_marginRight="18dp"
         android:text="TextView"
         android:textSize="18sp"
         app:autoSizeTextType="uniform"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView52"
-        app:layout_constraintEnd_toStartOf="@+id/textView54" />
+        app:layout_constraintEnd_toStartOf="@+id/imageView10"
+        app:layout_constraintStart_toStartOf="@+id/imageView10" />
 
     <TextView
         android:id="@+id/textView54"
@@ -282,13 +281,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
+        android:layout_marginBottom="242dp"
         android:text="Assassin Game"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:autoSizeTextType="uniform"
-        app:layout_constraintStart_toEndOf="@+id/imageView24"
-        app:layout_constraintTop_toTopOf="@+id/imageView24" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView24" />
 
     <TextView
         android:id="@+id/textView59"
@@ -296,13 +296,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
-        android:layout_marginBottom="207dp"
+        android:layout_marginTop="16dp"
         android:text="Games :"
         android:textColor="#000000"
         android:textStyle="bold"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView22" />
+        app:layout_constraintStart_toStartOf="@+id/imageView22"
+        app:layout_constraintTop_toBottomOf="@+id/textView56" />
 
     <TextView
         android:id="@+id/textView60"
@@ -362,7 +362,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
-        android:layout_marginBottom="6dp"
+        android:layout_marginBottom="7dp"
         android:text="Coins Picked Up :"
         android:textColor="#000000"
         android:textStyle="bold"
@@ -375,7 +375,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="6dp"
         app:adSize="BANNER"
         app:adUnitId="ca-app-pub-6251821844352758/2468640651"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -421,7 +421,7 @@
         android:textColor="#000000"
         android:textStyle="bold"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toTopOf="@+id/kkills_solo"
+        app:layout_constraintBottom_toTopOf="@+id/textView68"
         app:layout_constraintStart_toEndOf="@+id/imageView23" />
 
     <TextView
@@ -496,8 +496,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
         android:text="Deaths :"
         android:textColor="#000000"
         android:textStyle="bold"
@@ -521,13 +521,14 @@
         android:id="@+id/textView75"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:text="Coins Picked Up :"
         android:textColor="#000000"
         android:textStyle="bold"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView24"
         app:layout_constraintEnd_toStartOf="@+id/Deaths_Assassin"
-        app:layout_constraintStart_toStartOf="@+id/Deaths_Assassin" />
+        app:layout_constraintStart_toStartOf="@+id/Deaths_Assassin"
+        app:layout_constraintTop_toBottomOf="@+id/KKills_assassin" />
 
     <TextView
         android:id="@+id/games_solo"
@@ -557,23 +558,22 @@
         android:id="@+id/kills_solo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
+        android:layout_marginBottom="7dp"
         android:text="TextView"
         app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/textView62"
         app:layout_constraintEnd_toEndOf="@+id/textView62"
-        app:layout_constraintStart_toEndOf="@+id/textView62"
-        app:layout_constraintTop_toBottomOf="@+id/textView60" />
+        app:layout_constraintStart_toEndOf="@+id/textView62" />
 
     <TextView
         android:id="@+id/kkills_solo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
         android:text="TextView"
         app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="@+id/kills_solo"
         app:layout_constraintStart_toEndOf="@+id/kills_solo"
-        app:layout_constraintTop_toBottomOf="@+id/kills_solo" />
+        app:layout_constraintTop_toTopOf="@+id/textView68" />
 
     <TextView
         android:id="@+id/bkills_solo"
@@ -581,7 +581,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginBottom="2dp"
         android:text="TextView"
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="@+id/imageView23"
@@ -642,31 +642,31 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="38dp"
         android:text="0"
         app:autoSizeTextType="uniform"
         app:layout_constraintStart_toEndOf="@+id/textView68"
-        app:layout_constraintTop_toBottomOf="@+id/textView67" />
+        app:layout_constraintTop_toBottomOf="@+id/wins_survivor" />
 
     <TextView
         android:id="@+id/Ikills"
         android:layout_width="14dp"
         android:layout_height="22dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginBottom="29dp"
         android:text="0"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView22"
+        app:layout_constraintBottom_toBottomOf="@+id/coins_solo"
         app:layout_constraintEnd_toEndOf="@+id/Skills"
         app:layout_constraintStart_toEndOf="@+id/Skills"
-        app:layout_constraintTop_toBottomOf="@+id/Lalive_survivor" />
+        app:layout_constraintTop_toTopOf="@+id/Skills" />
 
     <TextView
         android:id="@+id/Games_assassin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
         android:text="TextView"
         app:autoSizeTextType="uniform"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView70"
@@ -676,18 +676,20 @@
         android:id="@+id/Wins_assassin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="38dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="40dp"
         android:text="TextView"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toTopOf="@+id/textView73"
-        app:layout_constraintStart_toEndOf="@+id/textView70" />
+        app:layout_constraintStart_toEndOf="@+id/textView70"
+        app:layout_constraintTop_toBottomOf="@+id/textView58" />
 
     <TextView
         android:id="@+id/Kills_assassin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginLeft="3dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
         android:text="TextView"
         app:autoSizeTextType="uniform"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView72"
@@ -697,8 +699,8 @@
         android:id="@+id/Deaths_Assassin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="13dp"
-        android:layout_marginRight="13dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
         android:text="TextView"
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="@+id/textView73"
@@ -720,24 +722,24 @@
         android:id="@+id/coins_assassin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="7dp"
-        android:layout_marginRight="7dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
         android:text="0"
         app:autoSizeTextType="uniform"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView75"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/textView75" />
 
     <ImageView
         android:id="@+id/imageView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
+        android:layout_marginStart="126dp"
+        android:layout_marginLeft="126dp"
         android:layout_marginTop="9dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginRight="68dp"
-        app:layout_constraintEnd_toEndOf="@+id/textView57"
-        app:layout_constraintStart_toStartOf="@+id/wins_solo"
+        android:layout_marginEnd="126dp"
+        android:layout_marginRight="126dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView71"
+        app:layout_constraintStart_toStartOf="@+id/textView35"
         app:layout_constraintTop_toTopOf="@+id/textView"
         app:srcCompat="@drawable/murder" />
 
@@ -745,9 +747,8 @@
         android:id="@+id/imageView23"
         android:layout_width="1dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="1dp"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="@+id/Ikills"
+        app:layout_constraintBottom_toTopOf="@+id/textView75"
         app:layout_constraintEnd_toEndOf="@+id/kkills_solo"
         app:layout_constraintStart_toEndOf="@+id/kkills_solo"
         app:layout_constraintTop_toTopOf="@+id/textView57"

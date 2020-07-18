@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
     Runnable test = new Runnable() {
         @Override
         public void run() {
-
             try {
                 URL url = null;
                 HttpURLConnection con = null;
@@ -102,14 +101,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                error = findViewById(R.id.textView51);
                 error.setText("Chargement en cours....");
                 username = tonEdit.getText().toString();
 
                 Intent Stats = new Intent(getApplicationContext(), Stats.class);
                 Stats.putExtra("username", username);
 
-                setContentView(R.layout.activity_waiting);
                 new Thread(test).start();
 
                 while (!finish) {
@@ -120,8 +117,6 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(Stats);
                     finish();
                 } else {
-                    setContentView(R.layout.activity_main);
-                    error = findViewById(R.id.textView51);
                     error.setText("Sorry but this username doesn't exist.");
                 }
 
