@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.gson.JsonObject;
@@ -18,8 +20,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class BedWars extends AppCompatActivity {
 
@@ -73,8 +73,8 @@ public class BedWars extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        this.imgButton = (ImageView) findViewById(R.id.imageView8);
-        this.username = findViewById(R.id.username);
+            this.imgButton = findViewById(R.id.imageView8);
+            this.username = findViewById(R.id.username);
         this.head = findViewById(R.id.imageView10);
         this.wins = findViewById(R.id.wins);
         this.losses = findViewById(R.id.losses);

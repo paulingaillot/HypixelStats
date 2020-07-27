@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
@@ -21,8 +23,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Calendar;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class Stats extends AppCompatActivity {
 
@@ -53,104 +53,11 @@ public class Stats extends AppCompatActivity {
 
     private InterstitialAd mInterstitialAd;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_waiting);
-
-        AdView mAdView1 = findViewById(R.id.adView9);
-        AdRequest adRequest1 = new AdRequest.Builder().build();
-        mAdView1.loadAd(adRequest1);
-
-        Intent intent = getIntent();
-        user = intent.getStringExtra("username");
-
-        new Thread(background).start();
-        while(!finish) {
-            continue;
-        }
-        if(finish) {
-            setContentView(R.layout.activity_stats);
-
-            AdView mAdView = findViewById(R.id.adView);
-            AdRequest adRequest = new AdRequest.Builder().build();
-            mAdView.loadAd(adRequest);
-
-            this.imgButton = (ImageView) findViewById(R.id.imgbutton);
-
-
-            this.uuid1 = (TextView) findViewById(R.id.uuid);
-            this.username1 = (TextView) findViewById(R.id.username);
-            this.lastLogin1 = (TextView) findViewById(R.id.lastLogin);
-            this.firstLogin1 = (TextView) findViewById(R.id.firstLogin);
-            this.karma1 = (TextView) findViewById(R.id.karma);
-            this.ap1 = (TextView) findViewById(R.id.ap);
-            this.xp1 = (TextView) findViewById(R.id.xp);
-            this.level1 = (TextView) findViewById(R.id.level);
-            this.img = (ImageView) findViewById(R.id.head);
-            this.coins = (TextView) findViewById(R.id.textView11);
-
-            //  AdView adView = new AdView(this);
-            // adView.setAdSize(AdSize.BANNER);adView.setAdUnitId("ca-app-pub-6251821844352758/2468640651");
-
-
-            imgButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    Intent Menu = new Intent(getApplicationContext(), menu.class);
-                    Menu.putExtra("username", user);
-                    startActivity(Menu);
-                    finish();
-                }
-            });
-
-
-            level1.setText(level + "");
-            karma1.setText(Karma + "");
-            coins.setText(totalCoins + "");
-            xp1.setText(Network_EXP + "");
-            ap1.setText(achievementPoints + "");
-            username1.setText(username + "");
-
-
-            Calendar calendar1 = Calendar.getInstance();
-            calendar1.setTimeInMillis(lastLogin);
-            int mYear1 = calendar1.get(Calendar.YEAR);
-            int mMonth1 = calendar1.get(Calendar.MONTH) + 1;
-            int mDay1 = calendar1.get(Calendar.DAY_OF_MONTH);
-            int mHour1 = calendar1.get(Calendar.HOUR_OF_DAY);
-            int mMinute1 = calendar1.get(Calendar.MINUTE);
-            int mSecond1 = calendar1.get(Calendar.SECOND);
-            lastLogin1.setText(mDay1 + "/" + mMonth1 + "/" + mYear1 + " " + mHour1 + ":" + mMinute1 + ":" + mSecond1);
-
-            Calendar calendar2 = Calendar.getInstance();
-            calendar2.setTimeInMillis(firstLogin);
-            int mYear2 = calendar2.get(Calendar.YEAR);
-            int mMonth2 = calendar2.get(Calendar.MONTH) + 1;
-            int mDay2 = calendar2.get(Calendar.DAY_OF_MONTH);
-            int mHour2 = calendar2.get(Calendar.HOUR_OF_DAY);
-            int mMinute2 = calendar2.get(Calendar.MINUTE);
-            int mSecond2 = calendar2.get(Calendar.SECOND);
-            firstLogin1.setText(mDay2 + "/" + mMonth2 + "/" + mYear2 + " " + mHour2 + ":" + mMinute2 + ":" + mSecond2);
-
-
-                img.setImageBitmap(imgURL);
-
-
-
-
-        }
-
-    }
-
     // Le runnable qui va exécuter la tâche de fond
     Runnable background = new Runnable() {
 
         @Override
         public void run() {
-
-
 
             try {
                 //setContentView(R.layout.activity_waiting);
@@ -219,7 +126,7 @@ public class Stats extends AppCompatActivity {
                         ++level;
                         Log.d("Level : ", ""+level);
                     }
-                   // level1.setText(""+level);
+
                     try {
                         Karma = jsonObject.getAsJsonObject("player").get("karma").toString();
                     } catch (Exception e) {
@@ -440,16 +347,97 @@ public class Stats extends AppCompatActivity {
                 }
 
 
-
-
             } catch (Exception e) {
                 finish = true;
             }
 
 
-
         }
     };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_waiting);
+
+        AdView mAdView1 = findViewById(R.id.adView9);
+        AdRequest adRequest1 = new AdRequest.Builder().build();
+        mAdView1.loadAd(adRequest1);
+
+        Intent intent = getIntent();
+        user = intent.getStringExtra("username");
+
+        Thread test = new Thread(background);
+        test.start();
+        while (test.isAlive()) {
+            continue;
+        }
+        setContentView(R.layout.activity_stats);
+
+        AdView mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        this.imgButton = findViewById(R.id.imgbutton);
+        uuid1 = findViewById(R.id.uuid);
+        username1 = findViewById(R.id.username);
+        lastLogin1 = findViewById(R.id.lastLogin);
+        firstLogin1 = findViewById(R.id.firstLogin);
+        karma1 = findViewById(R.id.karma);
+        ap1 = findViewById(R.id.ap);
+        xp1 = findViewById(R.id.xp);
+        img = findViewById(R.id.head);
+        coins = findViewById(R.id.textView11);
+        level1 = findViewById(R.id.level);
+
+        //  AdView adView = new AdView(this);
+        // adView.setAdSize(AdSize.BANNER);adView.setAdUnitId("ca-app-pub-6251821844352758/2468640651");
+
+
+        imgButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent Menu = new Intent(getApplicationContext(), menu.class);
+                Menu.putExtra("username", user);
+                startActivity(Menu);
+                finish();
+            }
+        });
+
+        karma1.setText(Karma + "");
+        coins.setText(totalCoins + "");
+        xp1.setText(Network_EXP + "");
+        level1.setText(level + "");
+        ap1.setText(achievementPoints + "");
+        username1.setText(username + "");
+
+
+        Calendar calendar1 = Calendar.getInstance();
+        calendar1.setTimeInMillis(lastLogin);
+        int mYear1 = calendar1.get(Calendar.YEAR);
+        int mMonth1 = calendar1.get(Calendar.MONTH) + 1;
+        int mDay1 = calendar1.get(Calendar.DAY_OF_MONTH);
+        int mHour1 = calendar1.get(Calendar.HOUR_OF_DAY);
+        int mMinute1 = calendar1.get(Calendar.MINUTE);
+        int mSecond1 = calendar1.get(Calendar.SECOND);
+        lastLogin1.setText(mDay1 + "/" + mMonth1 + "/" + mYear1 + " " + mHour1 + ":" + mMinute1 + ":" + mSecond1);
+
+        Calendar calendar2 = Calendar.getInstance();
+        calendar2.setTimeInMillis(firstLogin);
+        int mYear2 = calendar2.get(Calendar.YEAR);
+        int mMonth2 = calendar2.get(Calendar.MONTH) + 1;
+        int mDay2 = calendar2.get(Calendar.DAY_OF_MONTH);
+        int mHour2 = calendar2.get(Calendar.HOUR_OF_DAY);
+        int mMinute2 = calendar2.get(Calendar.MINUTE);
+        int mSecond2 = calendar2.get(Calendar.SECOND);
+        firstLogin1.setText(mDay2 + "/" + mMonth2 + "/" + mYear2 + " " + mHour2 + ":" + mMinute2 + ":" + mSecond2);
+
+
+        img.setImageBitmap(imgURL);
+
+
+    }
 
 
 }

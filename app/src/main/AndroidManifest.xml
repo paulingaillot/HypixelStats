@@ -11,12 +11,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Pit"></activity>
-        <activity android:name=".TnTGames" />
-        <activity android:name=".Murder" />
-        <activity android:name=".BedWars" />
-        <activity android:name=".SkyWars" />
-        <activity android:name=".menu" /> <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        <activity
+            android:name=".Skyblock"
+            android:label="Skyblock" />
+        <activity
+            android:name=".Pit"
+            android:label="¨Pit" />
+        <activity
+            android:name=".TnTGames"
+            android:label="TnTGames" />
+        <activity
+            android:name=".Murder"
+            android:label="Murder" />
+        <activity
+            android:name=".BedWars"
+            android:label="BedWars" />
+        <activity
+            android:name=".SkyWars"
+            android:label="SkyWars" />
+        <activity
+            android:name=".menu"
+            android:label="Menu" /> <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-6251821844352758~2907624350" />

@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -20,7 +22,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static fr.ybsi.hypixelstats.R.layout.activity_waiting;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,10 +31,14 @@ public class MainActivity extends AppCompatActivity {
     private boolean finish = false;
     private boolean finish2 = false;
     private String username;
+    private EditText tonEdit;
     Runnable test = new Runnable() {
         @Override
+
         public void run() {
             try {
+
+
                 URL url = null;
                 HttpURLConnection con = null;
                 String inputLine;
@@ -69,16 +75,16 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
-    private EditText tonEdit;
+    private int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.button = (Button) findViewById(R.id.button);
+        this.button = findViewById(R.id.button);
         this.error = findViewById(R.id.textView51);
-        this.tonEdit = (EditText) findViewById(R.id.editText);
+        this.tonEdit = findViewById(R.id.editText);
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -96,27 +102,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                error.setText("Chargement en cours....");
                 username = tonEdit.getText().toString();
+                setContentView(activity_waiting);
 
-                Intent Stats = new Intent(getApplicationContext(), Stats.class);
-                Stats.putExtra("username", username);
-
-                new Thread(test).start();
-
-                while (!finish) {
+                Thread val = new Thread(test);
+                val.start();
+                while (val.isAlive()) {
                     continue;
                 }
                 if (finish2 == true) {
-                    setContentView(R.layout.activity_waiting);
+                    Intent Stats = new Intent(getApplicationContext(), Stats.class);
+                    Stats.putExtra("username", username);
+
+
                     startActivity(Stats);
                     finish();
                 } else {
+                    finish = false;
                     error.setText("Sorry but this username doesn't exist.");
                 }
 
@@ -126,4 +132,5 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 }

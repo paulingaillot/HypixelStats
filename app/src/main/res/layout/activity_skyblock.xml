@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout5"
+    android:layout_width="500dp"
+    android:layout_height="match_parent"
+    tools:context=".Skyblock">
+
+    <ImageView
+        android:id="@+id/imageView32"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fond" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView28"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView31">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/prof1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Locked" />
+
+            <Button
+                android:id="@+id/prof2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Locked" />
+
+            <Button
+                android:id="@+id/prof3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Locked" />
+
+            <Button
+                android:id="@+id/prof4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Locked" />
+
+            <Button
+                android:id="@+id/prof5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Locked" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="4dp"
+        android:text="SkyBlock"
+        android:textColor="#000000"
+        android:textSize="36sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView31"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="165dp"
+        android:layout_marginLeft="165dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/skyblocklogo" />
+
+    <TextView
+        android:id="@+id/textView55"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="1dp"
+        android:text="Farming 0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/progressBar" />
+
+    <TextView
+        android:id="@+id/textView76"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="25dp"
+        android:text="Mining 0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView55" />
+
+    <TextView
+        android:id="@+id/textView95"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="21dp"
+        android:text="Combat 0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView76" />
+
+    <TextView
+        android:id="@+id/textView96"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="19dp"
+        android:text="Fishing 0 "
+        app:layout_constraintStart_toStartOf="@+id/textView97"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+    <TextView
+        android:id="@+id/textView97"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:text="Enchanting 0"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar2"
+        app:layout_constraintStart_toEndOf="@+id/progressBar2"
+        app:layout_constraintTop_toTopOf="@+id/progressBar2" />
+
+    <TextView
+        android:id="@+id/textView98"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alchemy 0 "
+        app:layout_constraintBottom_toTopOf="@+id/progressBar3"
+        app:layout_constraintStart_toStartOf="@+id/textView97"
+        app:layout_constraintTop_toTopOf="@+id/progressBar3" />
+
+    <TextView
+        android:id="@+id/textView99"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="13dp"
+        android:text="Foraging 0"
+        app:layout_constraintBottom_toTopOf="@+id/textView101"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView100"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:text="Taming 0 "
+        app:layout_constraintStart_toStartOf="@+id/textView102"
+        app:layout_constraintTop_toBottomOf="@+id/textView98" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="22dp"
+        app:layout_constraintStart_toEndOf="@+id/textView55"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar3"
+        app:layout_constraintStart_toStartOf="@+id/progressBar3" />
+
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="19dp"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar4"
+        app:layout_constraintStart_toStartOf="@+id/progressBar4" />
+
+    <ProgressBar
+        android:id="@+id/progressBar4"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView101"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar9" />
+
+    <ProgressBar
+        android:id="@+id/progressBar5"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="21dp"
+        app:layout_constraintStart_toStartOf="@+id/progressBar6"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+    <ProgressBar
+        android:id="@+id/progressBar6"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView97"
+        app:layout_constraintStart_toEndOf="@+id/textView97" />
+
+    <ProgressBar
+        android:id="@+id/progressBar7"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="21dp"
+        app:layout_constraintStart_toStartOf="@+id/progressBar6"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar6" />
+
+    <ProgressBar
+        android:id="@+id/progressBar8"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar10"
+        app:layout_constraintStart_toStartOf="@+id/progressBar10" />
+
+    <TextView
+        android:id="@+id/textView101"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="49dp"
+        android:text="Runecrafting 0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView95" />
+
+    <TextView
+        android:id="@+id/textView102"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:text="Carpentry 0 "
+        app:layout_constraintBottom_toBottomOf="@+id/progressBar9"
+        app:layout_constraintStart_toEndOf="@+id/progressBar9" />
+
+    <ProgressBar
+        android:id="@+id/progressBar9"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginLeft="11dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView101"
+        app:layout_constraintStart_toEndOf="@+id/textView101" />
+
+    <ProgressBar
+        android:id="@+id/progressBar10"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView102"
+        app:layout_constraintStart_toEndOf="@+id/textView102" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
