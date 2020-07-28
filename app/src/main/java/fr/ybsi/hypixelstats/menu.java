@@ -134,10 +134,10 @@ public class menu extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_waiting);
                 EditText tonEdit = findViewById(R.id.editText2);
 
                 String username = tonEdit.getText().toString();
+                setContentView(R.layout.activity_waiting);
 
                 Intent Stats = new Intent(getApplicationContext(), Stats.class);
                 Stats.putExtra("username", username);

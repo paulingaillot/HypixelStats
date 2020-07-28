@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
     private int i = 0;
+    private boolean val = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
-        AdView  mAdView = findViewById(R.id.adView2);
+        AdView mAdView = findViewById(R.id.adView2);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
@@ -107,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 username = tonEdit.getText().toString();
-                setContentView(activity_waiting);
 
                 Thread val = new Thread(test);
                 val.start();
@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
                     continue;
                 }
                 if (finish2 == true) {
+                    setContentView(activity_waiting);
                     Intent Stats = new Intent(getApplicationContext(), Stats.class);
                     Stats.putExtra("username", username);
 
@@ -126,8 +127,9 @@ public class MainActivity extends AppCompatActivity {
                     error.setText("Sorry but this username doesn't exist.");
                 }
 
-
             }
+
+
         });
 
 

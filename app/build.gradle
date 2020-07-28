@@ -10,8 +10,8 @@ android {
         minSdkVersion 16
         multiDexEnabled true
         targetSdkVersion 30
-        versionCode 3
-        versionName '1.1'
+        versionCode 4
+        versionName '1.2'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -33,8 +33,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.google.android.gms:play-services-ads:19.2.0'
-    implementation 'com.google.firebase:firebase-perf:19.0.7'
+    implementation 'com.google.android.gms:play-services-ads:19.3.0'
+    implementation 'com.google.firebase:firebase-perf:19.0.8'
     implementation 'com.google.code.gson:gson:2.8.6'
 
     // Recommended: Add the Firebase SDK for Google Analytics.

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Event"
+            android:label="¨Event" />
+        <activity
             android:name=".Skyblock"
             android:label="Skyblock" />
         <activity

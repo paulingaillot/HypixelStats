@@ -20,50 +20,52 @@
         android:id="@+id/Pit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
         android:text="The Pit"
         android:textColor="#000000"
         android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/BedWars"
         app:layout_constraintTop_toBottomOf="@+id/BedWars" />
 
     <TextView
         android:id="@+id/BedWars"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="205dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="204dp"
         android:text="BedWars"
         android:textColor="#000000"
         android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/SkyWars"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/General"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="52dp"
         android:text="General"
         android:textColor="#000000"
         android:textSize="36sp"
-        app:layout_constraintStart_toStartOf="@+id/TnTGames"
-        app:layout_constraintTop_toBottomOf="@+id/TnTGames" />
+        app:layout_constraintBottom_toTopOf="@+id/adView3"
+        app:layout_constraintEnd_toEndOf="@+id/SkyBlock" />
 
     <TextView
         android:id="@+id/TnTGames"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="39dp"
+        android:layout_marginLeft="39dp"
         android:layout_marginTop="22dp"
         android:text="TnTGames"
         android:textColor="#0A0000"
         android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/Murder"
         app:layout_constraintTop_toBottomOf="@+id/Murder" />
 
     <TextView
@@ -75,7 +77,6 @@
         android:textColor="#000000"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Pit" />
 
@@ -109,14 +110,13 @@
         android:id="@+id/SkyWars"
         android:layout_width="156dp"
         android:layout_height="52dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginBottom="73dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginBottom="72dp"
         android:text="SkyWars"
         android:textColor="#000000"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="@+id/BedWars"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
@@ -124,13 +124,13 @@
         android:id="@+id/adView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="41dp"
-        android:layout_marginRight="41dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="7dp"
         app:adSize="BANNER"
         app:adUnitId="ca-app-pub-6251821844352758/2468640651"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -143,11 +143,10 @@
         android:id="@+id/SkyBlock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginBottom="13dp"
         android:text="SkyBlock "
         android:textColor="#000000"
         android:textSize="36dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/General" />
+        app:layout_constraintBottom_toTopOf="@+id/General"
+        app:layout_constraintEnd_toEndOf="@+id/TnTGames" />
 </androidx.constraintlayout.widget.ConstraintLayout>
