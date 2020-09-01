@@ -46,21 +46,21 @@
         android:id="@+id/General"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginBottom="52dp"
         android:text="General"
         android:textColor="#000000"
         android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/adView3"
-        app:layout_constraintEnd_toEndOf="@+id/SkyBlock" />
+        app:layout_constraintEnd_toEndOf="@+id/SkyBlock"
+        app:layout_constraintTop_toBottomOf="@+id/SkyBlock" />
 
     <TextView
         android:id="@+id/TnTGames"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="39dp"
-        android:layout_marginLeft="39dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
         android:layout_marginTop="22dp"
         android:text="TnTGames"
         android:textColor="#0A0000"
@@ -79,6 +79,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Pit" />
+
+    <TextView
+        android:id="@+id/SkyBlock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="24dp"
+        android:text="SkyBlock "
+        android:textColor="#000000"
+        android:textSize="36dp"
+        app:layout_constraintStart_toStartOf="@+id/TnTGames"
+        app:layout_constraintTop_toBottomOf="@+id/TnTGames" />
+
+    <TextView
+        android:id="@+id/SkyWars"
+        android:layout_width="156dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginBottom="72dp"
+        android:text="SkyWars"
+        android:textColor="#000000"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="@+id/BedWars"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
     <EditText
         android:id="@+id/editText2"
@@ -106,27 +133,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/editText2" />
 
-    <TextView
-        android:id="@+id/SkyWars"
-        android:layout_width="156dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginBottom="72dp"
-        android:text="SkyWars"
-        android:textColor="#000000"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="@+id/BedWars"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
-
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginBottom="7dp"
+        android:layout_marginBottom="8dp"
         app:adSize="BANNER"
         app:adUnitId="ca-app-pub-6251821844352758/2468640651"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -139,14 +152,4 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="21dp" />
 
-    <TextView
-        android:id="@+id/SkyBlock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="13dp"
-        android:text="SkyBlock "
-        android:textColor="#000000"
-        android:textSize="36dp"
-        app:layout_constraintBottom_toTopOf="@+id/General"
-        app:layout_constraintEnd_toEndOf="@+id/TnTGames" />
 </androidx.constraintlayout.widget.ConstraintLayout>

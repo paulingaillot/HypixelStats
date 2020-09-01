@@ -138,7 +138,7 @@ public class BedWars extends AppCompatActivity {
             String key;
             JsonObject jsonObject;
 
-            key = "f0286aa9-4f44-48b8-8d04-90e9a45a4250";
+            key = "9fd9edd1-86a2-415a-8a7c-a7c96c75ad1e";
             try {
 
 

@@ -51,7 +51,7 @@ public class Skyblock extends AppCompatActivity {
                 String key;
                 JsonObject jsonObject;
 
-                key = "f0286aa9-4f44-48b8-8d04-90e9a45a4250";
+                key = "9fd9edd1-86a2-415a-8a7c-a7c96c75ad1e";
                 Log.d("test : ", "0");
                 // Part 1
 
@@ -142,7 +142,7 @@ public class Skyblock extends AppCompatActivity {
 
             try {
 
-                String key = "f0286aa9-4f44-48b8-8d04-90e9a45a4250";
+                String key = "9fd9edd1-86a2-415a-8a7c-a7c96c75ad1e";
                 Log.d("ID", "" + id.get(selectid - 1));
                 URL url = new URL("https://api.hypixel.net/skyblock/profile?key=" + key + "&profile=" + id.get(selectid - 1));
 
@@ -562,8 +562,8 @@ public class Skyblock extends AppCompatActivity {
 
                     bank.setText(bankcoins + "");
                     purse.setText(purseCoins + "");
-                    connexion.setText(lastCo);
-                    ct.setText(critdemage);
+                    connexion.setText(lastCo + "");
+                    ct.setText(critdemage + "");
 
                 }
             }
@@ -603,10 +603,10 @@ public class Skyblock extends AppCompatActivity {
                     tamingbar.setProgress(tamper);
                     carpentbar.setProgress(carper);
 
-                    bank.setText(bankcoins);
-                    purse.setText(purseCoins);
-                    connexion.setText(lastCo);
-                    ct.setText(critdemage);
+                    bank.setText(bankcoins + "");
+                    purse.setText(purseCoins + "");
+                    connexion.setText(lastCo + "");
+                    ct.setText(critdemage + "");
 
                 }
             }
@@ -646,10 +646,10 @@ public class Skyblock extends AppCompatActivity {
                     tamingbar.setProgress(tamper);
                     carpentbar.setProgress(carper);
 
-                    bank.setText(bankcoins);
-                    purse.setText(purseCoins);
-                    connexion.setText(lastCo);
-                    ct.setText(critdemage);
+                    bank.setText(bankcoins + "");
+                    purse.setText(purseCoins + "");
+                    connexion.setText(lastCo + "");
+                    ct.setText(critdemage + "");
 
                 }
             }
@@ -689,10 +689,10 @@ public class Skyblock extends AppCompatActivity {
                     tamingbar.setProgress(tamper);
                     carpentbar.setProgress(carper);
 
-                    bank.setText(bankcoins);
-                    purse.setText(purseCoins);
-                    connexion.setText(lastCo);
-                    ct.setText(critdemage);
+                    bank.setText(bankcoins + "");
+                    purse.setText(purseCoins + "");
+                    connexion.setText(lastCo + "");
+                    ct.setText(critdemage + "");
 
                 }
             }
