@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -75,27 +74,22 @@ public class TnTGames extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       setContentView(R.layout.activity_waiting);
-
-        AdView mAdView1 = findViewById(R.id.adView9);
-        AdRequest adRequest1 = new AdRequest.Builder().build();
-        mAdView1.loadAd(adRequest1);
-
-        Intent intent = getIntent();
-        user = intent.getStringExtra("username");
-
-        new Thread(background).start();
-
-        while(!finish) {
-            continue;
-        }
-        if(finish) {
-
         setContentView(R.layout.activity_tn_tgames);
 
         AdView mAdView = findViewById(R.id.adView8);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+        Intent intent = getIntent();
+        user = intent.getStringExtra("username");
+
+
+        Thread t =new Thread(background);
+        t.start();
+
+        while(t.isAlive()) {
+            continue;
+        }
 
         this.imgbutton = (ImageView) findViewById(R.id.imageView8);
         this.head = findViewById(R.id.imageView10);
@@ -146,7 +140,7 @@ public class TnTGames extends AppCompatActivity {
                 head.setImageBitmap(imgURL);
 
 
-        }
+
 
 
        imgbutton.setOnClickListener(new View.OnClickListener() {
@@ -166,33 +160,8 @@ public class TnTGames extends AppCompatActivity {
         @Override
         public void run() {
 
-            URL url = null;
-            HttpURLConnection con = null;
-            String inputLine;
-            String key;
-            JsonObject jsonObject;
-
-            key = "9fd9edd1-86a2-415a-8a7c-a7c96c75ad1e";
             try {
-
-                url = new URL("https://api.hypixel.net/player?key=" + key + "&name=" + user);
-
-
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-
-                urlConnection.setDoOutput(true);
-                urlConnection.setChunkedStreamingMode(0);
-
-                BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-
-                StringBuffer response = new StringBuffer();
-                while ((inputLine = in.readLine()) != null) {
-                    response.append(inputLine);
-                }
-                in.close();
-
-                jsonObject = new JsonParser().parse(response.toString()).getAsJsonObject();
-
+                JsonObject jsonObject = MainActivity.jsonObject;
 
                  String iURL = "https://cravatar.eu/head/"
                         + jsonObject.getAsJsonObject("player").get("uuid").toString().replace("\"", "")

@@ -50,7 +50,6 @@ public class menu extends AppCompatActivity {
         SkyBlock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_waiting);
                 Intent SkyBlock = new Intent(getApplicationContext(), Skyblock.class);
                 SkyBlock.putExtra("username", user);
                 startActivity(SkyBlock);
@@ -62,7 +61,6 @@ public class menu extends AppCompatActivity {
         SkyWars.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_waiting);
                 Intent skywars = new Intent(getApplicationContext(), SkyWars.class);
                 skywars.putExtra("username", user);
                 startActivity(skywars);
@@ -74,7 +72,6 @@ public class menu extends AppCompatActivity {
         BedWars.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_waiting);
                 Intent bedwars = new Intent(getApplicationContext(), BedWars.class);
                 bedwars.putExtra("username", user);
                 startActivity(bedwars);
@@ -86,7 +83,6 @@ public class menu extends AppCompatActivity {
         Murder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_waiting);
                 Intent murder = new Intent(getApplicationContext(), Murder.class);
                 murder.putExtra("username", user);
                 startActivity(murder);
@@ -98,7 +94,6 @@ public class menu extends AppCompatActivity {
         TnTGames.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_waiting);
                 Intent tntgames = new Intent(getApplicationContext(), TnTGames.class);
                 tntgames.putExtra("username", user);
                 startActivity(tntgames);
@@ -110,7 +105,6 @@ public class menu extends AppCompatActivity {
         Pit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_waiting);
                 Intent pit = new Intent(getApplicationContext(), Pit.class);
                 pit.putExtra("username", user);
                 startActivity(pit);
@@ -122,7 +116,6 @@ public class menu extends AppCompatActivity {
         General.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_waiting);
                 Intent Stats = new Intent(getApplicationContext(), Stats.class);
                 Stats.putExtra("username", user);
                 startActivity(Stats);
@@ -137,7 +130,6 @@ public class menu extends AppCompatActivity {
                 EditText tonEdit = findViewById(R.id.editText2);
 
                 String username = tonEdit.getText().toString();
-                setContentView(R.layout.activity_waiting);
 
                 Intent Stats = new Intent(getApplicationContext(), Stats.class);
                 Stats.putExtra("username", username);

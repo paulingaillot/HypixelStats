@@ -79,35 +79,31 @@ public class Murder extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_waiting);
+        setContentView(R.layout.activity_murder);
 
-        AdView mAdView1 = findViewById(R.id.adView9);
-        AdRequest adRequest1 = new AdRequest.Builder().build();
-        mAdView1.loadAd(adRequest1);
+        AdView mAdView = findViewById(R.id.adView7);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         Intent intent = getIntent();
         user = intent.getStringExtra("username");
 
 
-        new Thread(background).start();
+        Thread t = new Thread(background);
+        t.start();
 
-        while(!finish) {
+        while(t.isAlive()) {
             continue;
         }
-        if(finish) {
-            setContentView(R.layout.activity_murder);
 
-            AdView mAdView = findViewById(R.id.adView7);
-            AdRequest adRequest = new AdRequest.Builder().build();
-            mAdView.loadAd(adRequest);
 
             this.imgbutton = (ImageView) findViewById(R.id.imageView8);
             this.head = findViewById(R.id.imageView10);
             this.username = findViewById(R.id.username);
-            this.money = findViewById(R.id.money);
+            this.money = findViewById(R.id.coins);
             this.kills = findViewById(R.id.kills);
             this.wins = findViewById(R.id.wins);
-            this.play = findViewById(R.id.play);
+            //this.play = findViewById(R.id.play);
             this.games = findViewById(R.id.games);
             this.games_solo = findViewById(R.id.games_solo);
             this.wins_solo = findViewById(R.id.wins_solo);
@@ -166,38 +162,12 @@ public class Murder extends AppCompatActivity {
                 }
             });
         }
-    }
 
     Runnable background = new Runnable() {
         @Override
         public void run() {
-
-            URL url = null;
-            HttpURLConnection con = null;
-            String inputLine;
-            String key;
-            JsonObject jsonObject;
-
-            key = "9fd9edd1-86a2-415a-8a7c-a7c96c75ad1e";
             try {
-
-                url = new URL("https://api.hypixel.net/player?key=" + key + "&name=" + user);
-
-
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-
-                urlConnection.setDoOutput(true);
-                urlConnection.setChunkedStreamingMode(0);
-
-                BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-
-                StringBuffer response = new StringBuffer();
-                while ((inputLine = in.readLine()) != null) {
-                    response.append(inputLine);
-                }
-                in.close();
-
-                jsonObject = new JsonParser().parse(response.toString()).getAsJsonObject();
+                JsonObject jsonObject = MainActivity.jsonObject;
 
 
                  String iURL = "https://cravatar.eu/head/"

@@ -26,6 +26,7 @@ import java.util.Calendar;
 public class Skyblock extends AppCompatActivity {
 
     private String user;
+    private JsonObject SkyblockData;
     private ArrayList<String> name = new ArrayList<>();
     private ArrayList<String> id = new ArrayList<>();
     private int[] tab = {0, 50, 175, 375, 675, 1175, 1925, 2925, 4425, 6425, 9925, 14925,
@@ -41,22 +42,17 @@ public class Skyblock extends AppCompatActivity {
         public void run() {
 
             try {
-                //setContentView(R.layout.activity_waiting);
-
-                Log.d("User", "username : " + user);
-
-                URL url = null;
-                HttpURLConnection con = null;
                 String inputLine;
-                String key;
-                JsonObject jsonObject;
+                String key = "6bbc29a8-31c9-4a89-a416-fc0d892c09cc";
 
-                key = "9fd9edd1-86a2-415a-8a7c-a7c96c75ad1e";
-                Log.d("test : ", "0");
-                // Part 1
+                JsonObject jsonObject = MainActivity.jsonObject;
 
-                url = new URL("https://api.hypixel.net/player?key=" + key + "&name=" + user);
-                Log.d("test : ", "1");
+                uuid = jsonObject.getAsJsonObject("player").get("uuid").toString().replaceAll("\"", "");
+
+                // Part 2
+                Log.d("test : ", "2");
+                URL url = new URL("https://api.hypixel.net/skyblock/profiles?key=" + key + "&uuid=" + uuid);
+
 
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
@@ -65,43 +61,21 @@ public class Skyblock extends AppCompatActivity {
 
                 BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
 
-                StringBuffer response = new StringBuffer();
-                while ((inputLine = in.readLine()) != null) {
-                    response.append(inputLine);
-                }
-                in.close();
-
-                jsonObject = new JsonParser().parse(response.toString()).getAsJsonObject();
-
-                uuid = jsonObject.getAsJsonObject("player").get("uuid").toString().replaceAll("\"", "");
-
-                // Part 2
-                Log.d("test : ", "2");
-                url = new URL("https://api.hypixel.net/skyblock/profiles?key=" + key + "&uuid=" + uuid);
-
-
-                urlConnection = (HttpURLConnection) url.openConnection();
-
-                urlConnection.setDoOutput(true);
-                urlConnection.setChunkedStreamingMode(0);
-
-                in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-
-                response = new StringBuffer();
+                StringBuilder response = new StringBuilder();
                 while ((inputLine = in.readLine()) != null) {
                     response.append(inputLine);
                 }
                 in.close();
                 Log.d("test : ", "3");
-                jsonObject = new JsonParser().parse(response.toString()).getAsJsonObject();
+                SkyblockData = new JsonParser().parse(response.toString()).getAsJsonObject();
 
                 //Part 3
                 Log.d("test : ", "4");
-                int length = jsonObject.getAsJsonArray("profiles").size();
+                int length = SkyblockData.getAsJsonArray("profiles").size();
                 Log.d("test : ", "5");
                 for (int i = 0; i < length; i++) {
-                    name.add(i, jsonObject.getAsJsonArray("profiles").get(i).getAsJsonObject().get("cute_name").toString().replaceAll("\"", ""));
-                    id.add(i, jsonObject.getAsJsonArray("profiles").get(i).getAsJsonObject().get("profile_id").toString().replaceAll("\"", ""));
+                    name.add(i, SkyblockData.getAsJsonArray("profiles").get(i).getAsJsonObject().get("cute_name").toString().replaceAll("\"", ""));
+                    id.add(i, SkyblockData.getAsJsonArray("profiles").get(i).getAsJsonObject().get("profile_id").toString().replaceAll("\"", ""));
                 }
 
             } catch (Exception e) {
@@ -141,94 +115,74 @@ public class Skyblock extends AppCompatActivity {
         public void run() {
 
             try {
+                JsonObject jsonObject = SkyblockData;
 
-                String key = "9fd9edd1-86a2-415a-8a7c-a7c96c75ad1e";
-                Log.d("ID", "" + id.get(selectid - 1));
-                URL url = new URL("https://api.hypixel.net/skyblock/profile?key=" + key + "&profile=" + id.get(selectid - 1));
-
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-
-                urlConnection.setDoOutput(true);
-                urlConnection.setChunkedStreamingMode(0);
-
-                BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-
-                StringBuffer response = new StringBuffer();
-                String inputLine;
-                while ((inputLine = in.readLine()) != null) {
-                    response.append(inputLine);
-                }
-                in.close();
-                Log.d("test : ", "3");
-                JsonObject jsonObject = new JsonParser().parse(response.toString()).getAsJsonObject();
-
-                jsonObject.getAsJsonObject("profile").get("profile_id").toString();
 
                 double farm = 0;
                 try {
-                    farm = Double.parseDouble(jsonObject.getAsJsonObject("profile").getAsJsonObject("members").getAsJsonObject(uuid).get("experience_skill_farming").toString());
+                    farm = Double.parseDouble(jsonObject.getAsJsonArray("profiles").get(selectid-1).getAsJsonObject().getAsJsonObject("members").getAsJsonObject(uuid).get("experience_skill_farming").toString());
                 } catch (Exception e) {
 
                 }
                 double mining = 0;
                 try {
-                    mining = Double.parseDouble(jsonObject.getAsJsonObject("profile").getAsJsonObject("members").getAsJsonObject(uuid).get("experience_skill_mining").toString());
+                    mining = Double.parseDouble(jsonObject.getAsJsonArray("profiles").get(selectid-1).getAsJsonObject().getAsJsonObject("members").getAsJsonObject(uuid).get("experience_skill_mining").toString());
                 } catch (Exception e) {
 
                 }
                 double combat = 0;
                 try {
-                    combat = Double.parseDouble(jsonObject.getAsJsonObject("profile").getAsJsonObject("members").getAsJsonObject(uuid).get("experience_skill_combat").toString());
+                    combat = Double.parseDouble(jsonObject.getAsJsonArray("profiles").get(selectid-1).getAsJsonObject().getAsJsonObject("members").getAsJsonObject(uuid).get("experience_skill_combat").toString());
                 } catch (Exception e) {
 
                 }
                 double foraging = 0;
                 try {
-                    foraging = Double.parseDouble(jsonObject.getAsJsonObject("profile").getAsJsonObject("members").getAsJsonObject(uuid).get("experience_skill_foraging").toString());
+                    foraging = Double.parseDouble(jsonObject.getAsJsonArray("profiles").get(selectid-1).getAsJsonObject().getAsJsonObject("members").getAsJsonObject(uuid).get("experience_skill_foraging").toString());
                 } catch (Exception e) {
 
                 }
 
                 double runecraft = 0;
                 try {
-                    runecraft = Double.parseDouble(jsonObject.getAsJsonObject("profile").getAsJsonObject("members").getAsJsonObject(uuid).get("experience_skill_runecrafting").toString());
+                    runecraft = Double.parseDouble(jsonObject.getAsJsonArray("profiles").get(selectid-1).getAsJsonObject().getAsJsonObject("members").getAsJsonObject(uuid).get("experience_skill_runecrafting").toString());
                 } catch (Exception e) {
 
                 }
                 double fish = 0;
                 try {
-                    fish = Double.parseDouble(jsonObject.getAsJsonObject("profile").getAsJsonObject("members").getAsJsonObject(uuid).get("experience_skill_fishing").toString());
+                    fish = Double.parseDouble(jsonObject.getAsJsonArray("profiles").get(selectid-1).getAsJsonObject().getAsJsonObject("members").getAsJsonObject(uuid).get("experience_skill_fishing").toString());
                 } catch (Exception e) {
 
                 }
                 double enchant = 0;
                 try {
-                    enchant = Double.parseDouble(jsonObject.getAsJsonObject("profile").getAsJsonObject("members").getAsJsonObject(uuid).get("experience_skill_enchanting").toString());
+                    enchant = Double.parseDouble(jsonObject.getAsJsonArray("profiles").get(selectid-1).getAsJsonObject().getAsJsonObject("members").getAsJsonObject(uuid).get("experience_skill_enchanting").toString());
                 } catch (Exception e) {
 
                 }
                 double alchemy = 0;
                 try {
-                    alchemy = Double.parseDouble(jsonObject.getAsJsonObject("profile").getAsJsonObject("members").getAsJsonObject(uuid).get("experience_skill_alchemy").toString());
+                    alchemy = Double.parseDouble(jsonObject.getAsJsonArray("profiles").get(selectid-1).getAsJsonObject().getAsJsonObject("members").getAsJsonObject(uuid).get("experience_skill_alchemy").toString());
                 } catch (Exception e) {
 
                 }
                 double taming = 0;
                 try {
-                    taming = Double.parseDouble(jsonObject.getAsJsonObject("profile").getAsJsonObject("members").getAsJsonObject(uuid).get("experience_skill_taming").toString());
+                    taming = Double.parseDouble(jsonObject.getAsJsonArray("profiles").get(selectid-1).getAsJsonObject().getAsJsonObject("members").getAsJsonObject(uuid).get("experience_skill_taming").toString());
                 } catch (Exception e) {
 
                 }
                 double carpentry = 0;
                 try {
-                    carpentry = Double.parseDouble(jsonObject.getAsJsonObject("profile").getAsJsonObject("members").getAsJsonObject(uuid).get("experience_skill_carpentry").toString());
+                    carpentry = Double.parseDouble(jsonObject.getAsJsonArray("profiles").get(selectid-1).getAsJsonObject().getAsJsonObject("members").getAsJsonObject(uuid).get("experience_skill_carpentry").toString());
                 } catch (Exception e) {
 
                 }
 
                 critdemage = "0";
                 try {
-                    critdemage = jsonObject.getAsJsonObject("profile").getAsJsonObject("members").getAsJsonObject(uuid).getAsJsonObject("stats").get("highest_crit_damage").toString();
+                    critdemage = jsonObject.getAsJsonArray("profiles").get(selectid-1).getAsJsonObject().getAsJsonObject("members").getAsJsonObject(uuid).getAsJsonObject("stats").get("highest_crit_damage").toString();
                 } catch (Exception e) {
 
                 }
@@ -236,20 +190,20 @@ public class Skyblock extends AppCompatActivity {
 
                 purseCoins = 0;
                 try {
-                    purseCoins = (int) (Double.parseDouble(jsonObject.getAsJsonObject("profile").getAsJsonObject("members").getAsJsonObject(uuid).get("coin_purse").toString()));
+                    purseCoins = (int) (Double.parseDouble(jsonObject.getAsJsonArray("profiles").get(selectid-1).getAsJsonObject().getAsJsonObject("members").getAsJsonObject(uuid).get("coin_purse").toString()));
                 } catch (Exception e) {
 
                 }
                 bankcoins = 0;
                 try {
-                    bankcoins = (int) (Double.parseDouble(jsonObject.getAsJsonObject("profile").getAsJsonObject("banking").get("balance").toString()));
+                    bankcoins = (int) (Double.parseDouble(jsonObject.getAsJsonArray("profiles").get(selectid-1).getAsJsonObject().getAsJsonObject("banking").get("balance").toString()));
                 } catch (Exception e) {
 
                 }
 
                 Long lc = Calendar.getInstance().getTimeInMillis();
                 try {
-                    lc = Long.parseLong(jsonObject.getAsJsonObject("profile").getAsJsonObject("members").getAsJsonObject(uuid).get("last_save").toString());
+                    lc = Long.parseLong(jsonObject.getAsJsonArray("profiles").get(selectid-1).getAsJsonObject().getAsJsonObject("members").getAsJsonObject(uuid).get("last_save").toString());
                 } catch (Exception e) {
 
                 }
@@ -407,14 +361,16 @@ public class Skyblock extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skyblock);
-
+        Log.d("SkyWarsDebug", "1");
         AdView mAdView1 = findViewById(R.id.adView10);
         AdRequest adRequest1 = new AdRequest.Builder().build();
         mAdView1.loadAd(adRequest1);
 
+        Log.d("SkyWarsDebug", "2");
+
         Intent intent = getIntent();
         user = intent.getStringExtra("username");
-
+        Log.d("SkyWarsDebug", "3");
         this.farming = findViewById(R.id.textView55);
         this.mining = findViewById(R.id.textView76);
         this.combat = findViewById(R.id.textView95);
@@ -425,7 +381,7 @@ public class Skyblock extends AppCompatActivity {
         this.alchemy = findViewById(R.id.textView98);
         this.carpentry = findViewById(R.id.textView102);
         this.taming = findViewById(R.id.textView100);
-
+        Log.d("SkyWarsDebug", "4");
         this.farmbar = findViewById(R.id.progressBar);
         this.miningbar = findViewById(R.id.progressBar2);
         this.combatbar = findViewById(R.id.progressBar3);
@@ -436,7 +392,7 @@ public class Skyblock extends AppCompatActivity {
         this.alchemybar = findViewById(R.id.progressBar7);
         this.tamingbar = findViewById(R.id.progressBar8);
         this.carpentbar = findViewById(R.id.progressBar10);
-
+        Log.d("SkyWarsDebug", "2");
         this.prof1 = findViewById(R.id.prof1);
         this.prof2 = findViewById(R.id.prof2);
         this.prof3 = findViewById(R.id.prof3);
@@ -475,6 +431,7 @@ public class Skyblock extends AppCompatActivity {
             while (bg.isAlive()) {
                 continue;
             }
+
             farming.setText("Farming " + farmlevel);
             mining.setText("Mining " + mininglevel);
             combat.setText("Combat " + combatlevel);
@@ -485,6 +442,17 @@ public class Skyblock extends AppCompatActivity {
             alchemy.setText("Alchemy " + alchemylevel);
             taming.setText("Taming " + taminglevel);
             carpentry.setText("Carpentry " + carpentrylevel);
+
+            farmbar.setProgress(farmper);
+            miningbar.setProgress(minper);
+            combatbar.setProgress(combper);
+            foragingbar.setProgress(forper);
+            runebar.setProgress(runeper);
+            fishbar.setProgress(fishper);
+            enchantbar.setProgress(enchantper);
+            alchemybar.setProgress(alcper);
+            tamingbar.setProgress(tamper);
+            carpentbar.setProgress(carper);
 
             bank.setText(bankcoins + "");
             purse.setText(purseCoins + "");
@@ -506,6 +474,7 @@ public class Skyblock extends AppCompatActivity {
                     while (bg.isAlive()) {
                         continue;
                     }
+
                     farming.setText("Farming " + farmlevel);
                     mining.setText("Mining " + mininglevel);
                     combat.setText("Combat " + combatlevel);
@@ -516,6 +485,17 @@ public class Skyblock extends AppCompatActivity {
                     alchemy.setText("Alchemy " + alchemylevel);
                     taming.setText("Taming " + taminglevel);
                     carpentry.setText("Carpentry " + carpentrylevel);
+
+                    farmbar.setProgress(farmper);
+                    miningbar.setProgress(minper);
+                    combatbar.setProgress(combper);
+                    foragingbar.setProgress(forper);
+                    runebar.setProgress(runeper);
+                    fishbar.setProgress(fishper);
+                    enchantbar.setProgress(enchantper);
+                    alchemybar.setProgress(alcper);
+                    tamingbar.setProgress(tamper);
+                    carpentbar.setProgress(carper);
 
                     bank.setText(bankcoins + "");
                     purse.setText(purseCoins + "");

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -38,43 +40,42 @@ public class BedWars extends AppCompatActivity {
     private boolean finish = false;
     private String user;
 
-    private String username1;
-    private String kill;
-    private String death;
-    private String coins;
+    private String username1 = "a";
+    private String kill= "a";
+    private String death= "a";
+    private String coins= "a";
     private Bitmap imgURL;
-    private String wins2;
-    private String parties_jouées;
-    private String level1;
-    private String beds_broken_bedwars;
-    private String losse;
+    private String wins2= "a";
+    private String parties_jouées= "a";
+    private String level1= "a";
+    private String beds_broken_bedwars= "a";
+    private String losse= "a";
+
+    public BedWars() throws IOException {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_waiting);
+        setContentView(R.layout.activity_bed_wars);
 
-        AdView mAdView1 = findViewById(R.id.adView9);
-        AdRequest adRequest1 = new AdRequest.Builder().build();
-        mAdView1.loadAd(adRequest1);
-
-        Intent intent = getIntent();
-        user = intent.getStringExtra("username");
-
-
-        new Thread(background).start();
-
-        while(!finish) {
-            continue;
-        }
-        if(finish) {
-            setContentView(R.layout.activity_bed_wars);
         AdView mAdView = findViewById(R.id.adView5);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-            this.imgButton = findViewById(R.id.imageView8);
-            this.username = findViewById(R.id.username);
+        Intent intent = getIntent();
+        user = intent.getStringExtra("username");
+
+        finish = false;
+        Thread t = new Thread(background);
+        t.start();
+
+        while(t.isAlive()) {
+            continue;
+}
+
+        this.imgButton = findViewById(R.id.imageView14);
+        this.username = findViewById(R.id.username);
         this.head = findViewById(R.id.imageView10);
         this.wins = findViewById(R.id.wins);
         this.losses = findViewById(R.id.losses);
@@ -112,7 +113,7 @@ public class BedWars extends AppCompatActivity {
             }catch(Exception e){
 
             }
-        }
+
 
         imgButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,35 +132,10 @@ public class BedWars extends AppCompatActivity {
 
         @Override
         public void run() {
-
-            URL url = null;
-            HttpURLConnection con = null;
-            String inputLine;
-            String key;
-            JsonObject jsonObject;
-
-            key = "9fd9edd1-86a2-415a-8a7c-a7c96c75ad1e";
             try {
+                JsonObject jsonObject = MainActivity.jsonObject.deepCopy();
 
-
-                url = new URL("https://api.hypixel.net/player?key=" + key + "&name=" + user);
-
-
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-
-                urlConnection.setDoOutput(true);
-                urlConnection.setChunkedStreamingMode(0);
-
-                BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-
-                StringBuffer response = new StringBuffer();
-                while ((inputLine = in.readLine()) != null) {
-                    response.append(inputLine);
-                }
-                in.close();
-
-                jsonObject = new JsonParser().parse(response.toString()).getAsJsonObject();
-
+                Log.d("BesWardDebug", "1");
 
                  String url1 = "https://cravatar.eu/head/"
                         + jsonObject.getAsJsonObject("player").get("uuid").toString().replace("\"", "")
@@ -169,6 +145,8 @@ public class BedWars extends AppCompatActivity {
 
                  username1 = jsonObject.getAsJsonObject("player").get("playername").toString().replace("\"", "");
 
+
+                Log.d("BesWardDebug", "2");
 
                 try {
                     coins = jsonObject.getAsJsonObject("player").getAsJsonObject("stats")
@@ -184,7 +162,7 @@ public class BedWars extends AppCompatActivity {
                 } catch (NullPointerException e) {
                     level1 = "0";
                 }
-
+                Log.d("BesWardDebug", "3");
 
                 try {
                     kill = jsonObject.getAsJsonObject("player").getAsJsonObject("stats")
@@ -210,7 +188,7 @@ public class BedWars extends AppCompatActivity {
                     parties_jouées = "0";
                 }
 
-
+                Log.d("BesWardDebug", "4");
                 try {
                     beds_broken_bedwars = jsonObject.getAsJsonObject("player").getAsJsonObject("stats")
                             .getAsJsonObject("Bedwars").get("beds_broken_bedwars").toString().replace("\"", "");
@@ -227,7 +205,7 @@ public class BedWars extends AppCompatActivity {
                     wins2 = "0";
                 }
 
-
+                Log.d("BesWardDebug", "5");
 
                 try {
                     losse = jsonObject.getAsJsonObject("player").getAsJsonObject("stats")
@@ -235,6 +213,7 @@ public class BedWars extends AppCompatActivity {
                 } catch (NullPointerException e) {
                     losse = "0";
                 }
+                Log.d("BesWardDebug", "6");
 
                 finish = true;
 

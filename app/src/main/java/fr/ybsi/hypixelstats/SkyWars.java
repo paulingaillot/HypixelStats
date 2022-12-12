@@ -49,25 +49,22 @@ public class SkyWars extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_waiting);
-
-        AdView mAdView1 = findViewById(R.id.adView9);
-        AdRequest adRequest1 = new AdRequest.Builder().build();
-        mAdView1.loadAd(adRequest1);
-
-        Intent intent = getIntent();
-        user = intent.getStringExtra("username");
-        new Thread(background).start();
-
-        while(!finish) {
-            continue;
-        }
-        if(finish) {
         setContentView(R.layout.activity_sky_wars);
 
         AdView mAdView = findViewById(R.id.adView6);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+        Intent intent = getIntent();
+        user = intent.getStringExtra("username");
+        finish = false;
+        Thread t = new Thread(background);
+        t.start();
+
+
+        while(t.isAlive()) {
+            continue;
+        }
 
         this.imgbutton = (ImageView) findViewById(R.id.imageView8);
         this.head = findViewById(R.id.imageView10);
@@ -105,7 +102,7 @@ public class SkyWars extends AppCompatActivity {
                 head.setImageBitmap(imgURL);
 
 
-        }
+
 
 
     }
@@ -115,95 +112,68 @@ public class SkyWars extends AppCompatActivity {
         @Override
         public void run() {
 
-            URL url = null;
-            HttpURLConnection con = null;
-            String inputLine;
-            String key;
-            JsonObject jsonObject;
+                JsonObject jsonObject = MainActivity.jsonObject;
 
-            key = "9fd9edd1-86a2-415a-8a7c-a7c96c75ad1e";
             try {
-
-                url = new URL("https://api.hypixel.net/player?key=" + key + "&name=" + user);
-
-
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-
-                urlConnection.setDoOutput(true);
-                urlConnection.setChunkedStreamingMode(0);
-
-                BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-
-                StringBuffer response = new StringBuffer();
-                while ((inputLine = in.readLine()) != null) {
-                    response.append(inputLine);
-                }
-                in.close();
-
-                jsonObject = new JsonParser().parse(response.toString()).getAsJsonObject();
-
-
                 String iURL = "https://cravatar.eu/head/"
                         + jsonObject.getAsJsonObject("player").get("uuid").toString().replace("\"", "")
                         + "?254";
-                 imgURL = BitmapFactory.decodeStream((InputStream) new URL(iURL).getContent());
+                imgURL = BitmapFactory.decodeStream((InputStream) new URL(iURL).getContent());
 
-                 username1 = jsonObject.getAsJsonObject("player").get("playername").toString().replace("\"", "");
+                username1 = jsonObject.getAsJsonObject("player").get("playername").toString().replace("\"", "");
 
-                 Temps_de_jeu = "0";
+                Temps_de_jeu = "0";
                 try {
                     Temps_de_jeu = jsonObject.getAsJsonObject("player").getAsJsonObject("stats").getAsJsonObject("SkyWars").get("time_played").toString().replace("\"", "");
-                }catch(NullPointerException e) {
+                } catch (NullPointerException e) {
                     Temps_de_jeu = "0";
                 }
 
 
-                 kills1 = "0";
+                kills1 = "0";
                 try {
-                    kills1=   jsonObject.getAsJsonObject("player").getAsJsonObject("stats").getAsJsonObject("SkyWars") .get("kills").toString().replace("\"", "");
-                }catch (NullPointerException e) {
+                    kills1 = jsonObject.getAsJsonObject("player").getAsJsonObject("stats").getAsJsonObject("SkyWars").get("kills").toString().replace("\"", "");
+                } catch (NullPointerException e) {
 
                 }
 
-                 wins1="0";
+                wins1 = "0";
                 try {
-                    wins1 =   jsonObject.getAsJsonObject("player").getAsJsonObject("stats").getAsJsonObject("SkyWars")
+                    wins1 = jsonObject.getAsJsonObject("player").getAsJsonObject("stats").getAsJsonObject("SkyWars")
                             .get("wins").toString().replace("\"", "");
-                }catch(NullPointerException e) {
+                } catch (NullPointerException e) {
 
                 }
 
-                 heads1 = "0";
+                heads1 = "0";
                 try {
                     heads1 = jsonObject.getAsJsonObject("player").getAsJsonObject("stats").getAsJsonObject("SkyWars")
                             .get("heads").toString().replace("\"", "");
-                }catch(NullPointerException e) {
+                } catch (NullPointerException e) {
 
                 }
 
-                 souls1 = "0";
+                souls1 = "0";
 
                 try {
                     souls1 = jsonObject.getAsJsonObject("player").getAsJsonObject("stats").getAsJsonObject("SkyWars")
                             .get("souls").toString().replace("\"", "");
-                }catch(NullPointerException e) {
+                } catch (NullPointerException e) {
 
                 }
 
-                 coins = "0" ;
+                coins = "0";
                 try {
-                    coins =  jsonObject.getAsJsonObject("player").getAsJsonObject("stats").getAsJsonObject("SkyWars")
+                    coins = jsonObject.getAsJsonObject("player").getAsJsonObject("stats").getAsJsonObject("SkyWars")
                             .get("coins").toString().replace("\"", "");
-                }catch(NullPointerException e) {
+                } catch (NullPointerException e) {
 
                 }
 
                 finish = true;
+            }catch (Exception e) {
 
-            }catch(Exception e){
-                finish = true;
             }
-
 
         }
     };
