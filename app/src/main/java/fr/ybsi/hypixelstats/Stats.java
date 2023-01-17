@@ -1,5 +1,8 @@
 package fr.ybsi.hypixelstats;
 
+
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,20 +13,35 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Stats extends AppCompatActivity {
 
@@ -51,6 +69,7 @@ public class Stats extends AppCompatActivity {
     private static String username;
     private static Bitmap imgURL;
     private static String Karma;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,12 +95,56 @@ public class Stats extends AppCompatActivity {
         coins = findViewById(R.id.textView11);
         level1 = findViewById(R.id.level);
 
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.SCREEN_NAME, "MainActivity");
+        //bundle.putString(FirebaseAnalytics.Param.SEARCH_TERM, user);
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+
+
         Thread test = new Thread(background);
         test.start();
         while (test.isAlive()) {
             continue;
         }
 
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        // Create a reference to the cities collection
+        CollectionReference profils = db.collection("profils");
+
+        // Create a query against the collection.
+        Query query = profils.whereEqualTo("username", username);
+    query
+        .get()
+        .addOnCompleteListener(
+            new OnCompleteListener<QuerySnapshot>() {
+              @Override
+              public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                  int resultSize = task.getResult().size();
+                  if (resultSize == 0) {
+                    // Create a new user with a first and last name
+                    Map<String, Object> user1 = new HashMap<>();
+                    user1.put("username", username);
+                    user1.put("xp", Network_EXP);
+
+                    profils.add(user1);
+                  } else {
+                    int xp2 = Integer.parseInt((String) task.getResult().getDocuments().get(0).get("xp"));
+                    if (xp2 != Integer.parseInt(Network_EXP)) {
+                      profils.document(task.getResult().getDocuments().get(0).getId()).delete();
+                      // Create a new user with a first and last name
+                      Map<String, Object> user1 = new HashMap<>();
+                      user1.put("username", username);
+                      user1.put("xp", Network_EXP);
+
+                      profils.add(user1);
+                    }
+                  }
+                }
+              }
+            });
 
         imgButton.setOnClickListener(new View.OnClickListener() {
             @Override

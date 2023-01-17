@@ -85,14 +85,24 @@ public class Pit extends AppCompatActivity {
             money.setText(money1);
             renown_upgrade.setText(mess);
 
+        int mYear1 = 0;
+        int mMonth1 = 0;
+        int mDay1 = 0;
+        int mHour1 = 0;
+        int mMinute1 = 0;
+        int mSecond1 = 0;
+            try {
             Calendar calendar1 = Calendar.getInstance();
             calendar1.setTimeInMillis(lastconnexion1);
-            int mYear1 = calendar1.get(Calendar.YEAR);
-            int mMonth1 = calendar1.get(Calendar.MONTH) + 1;
-            int mDay1 = calendar1.get(Calendar.DAY_OF_MONTH);
-            int mHour1 = calendar1.get(Calendar.HOUR_OF_DAY);
-            int mMinute1 = calendar1.get(Calendar.MINUTE);
-            int mSecond1 = calendar1.get(Calendar.SECOND);
+             mYear1 = calendar1.get(Calendar.YEAR);
+             mMonth1 = calendar1.get(Calendar.MONTH) + 1;
+             mDay1 = calendar1.get(Calendar.DAY_OF_MONTH);
+             mHour1 = calendar1.get(Calendar.HOUR_OF_DAY);
+             mMinute1 = calendar1.get(Calendar.MINUTE);
+             mSecond1 = calendar1.get(Calendar.SECOND);
+            }catch (Exception e) {
+
+            }
 
             lastconnexion.setText(mDay1+"/"+mMonth1+"/"+mYear1+" "+mHour1+":"+mMinute1+":"+mSecond1);
             head.setImageBitmap(imgURL);

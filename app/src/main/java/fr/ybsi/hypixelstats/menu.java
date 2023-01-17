@@ -131,10 +131,28 @@ public class menu extends AppCompatActivity {
 
                 String username = tonEdit.getText().toString();
 
-                Intent Stats = new Intent(getApplicationContext(), Stats.class);
-                Stats.putExtra("username", username);
-                startActivity(Stats);
-                finish();
+                MainActivity.username = username;
+                Thread val = new Thread(MainActivity.test);
+
+                val.start();
+                while (val.isAlive()) {
+                    continue;
+                }
+
+                if (MainActivity.finish2 == true) {
+                    Intent Stats = new Intent(getApplicationContext(), Stats.class);
+                    Stats.putExtra("username", username);
+                    startActivity(Stats);
+                    finish();
+                } else {
+                    if (MainActivity.errorCode != "") {
+                        tonEdit.setText("" + MainActivity.errorCode);
+                    } else {
+                        tonEdit.setText("Sorry but this username doesn't exist.");
+                    }
+                }
+
+
 
             }
         });

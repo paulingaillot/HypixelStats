@@ -50,84 +50,6 @@ public class BedWars extends AppCompatActivity {
     private String level1= "a";
     private String beds_broken_bedwars= "a";
     private String losse= "a";
-
-    public BedWars() throws IOException {
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bed_wars);
-
-        AdView mAdView = findViewById(R.id.adView5);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-
-        Intent intent = getIntent();
-        user = intent.getStringExtra("username");
-
-        finish = false;
-        Thread t = new Thread(background);
-        t.start();
-
-        while(t.isAlive()) {
-            continue;
-}
-
-        this.imgButton = findViewById(R.id.imageView14);
-        this.username = findViewById(R.id.username);
-        this.head = findViewById(R.id.imageView10);
-        this.wins = findViewById(R.id.wins);
-        this.losses = findViewById(R.id.losses);
-        this.kills = findViewById(R.id.kills);
-        this.deaths = findViewById(R.id.deaths);
-        this.play = findViewById(R.id.play);
-        this.bed = findViewById(R.id.bed);
-        this.money = findViewById(R.id.money);
-        this.level = findViewById(R.id.level);
-
-        imgButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent Menu = new Intent(getApplicationContext(), menu.class);
-                Menu.putExtra("username", user);
-                startActivity(Menu);
-                finish();
-            }
-        });
-
-            username.setText(username1);
-            money.setText(coins);
-            level.setText(level1);
-            kills.setText(kill);
-            deaths.setText(death);
-            play.setText(parties_jouées);
-            bed.setText(beds_broken_bedwars);
-            wins.setText(wins2);
-            losses.setText(losse);
-
-            try {
-
-                head.setImageBitmap(imgURL);
-            }catch(Exception e){
-
-            }
-
-
-        imgButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent Menu = new Intent(getApplicationContext(), menu.class);
-                Menu.putExtra("username", user);
-                startActivity(Menu);
-                finish();
-            }
-        });
-
-    }
-
     Runnable background = new Runnable() {
 
         @Override
@@ -222,5 +144,82 @@ public class BedWars extends AppCompatActivity {
             }
         }
     };
+
+    public BedWars() throws IOException {
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_bed_wars);
+
+        AdView mAdView = findViewById(R.id.adView5);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        Intent intent = getIntent();
+        user = intent.getStringExtra("username");
+
+        finish = false;
+        Thread t = new Thread(background);
+        t.start();
+
+        while(t.isAlive()) {
+            continue;
+}
+
+        this.imgButton = findViewById(R.id.imageView14);
+        this.username = findViewById(R.id.username);
+        this.head = findViewById(R.id.imageView10);
+        this.wins = findViewById(R.id.wins);
+        this.losses = findViewById(R.id.losses);
+        this.kills = findViewById(R.id.kills);
+        this.deaths = findViewById(R.id.deaths);
+        this.play = findViewById(R.id.play);
+        this.bed = findViewById(R.id.bed);
+        this.money = findViewById(R.id.money);
+        this.level = findViewById(R.id.level);
+
+        imgButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent Menu = new Intent(getApplicationContext(), menu.class);
+                Menu.putExtra("username", user);
+                startActivity(Menu);
+                finish();
+            }
+        });
+
+            username.setText(username1);
+            money.setText(coins);
+            level.setText(level1);
+            kills.setText(kill);
+            deaths.setText(death);
+            play.setText(parties_jouées);
+            bed.setText(beds_broken_bedwars);
+            wins.setText(wins2);
+            losses.setText(losse);
+
+            try {
+
+                head.setImageBitmap(imgURL);
+            }catch(Exception e){
+
+            }
+
+
+        imgButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent Menu = new Intent(getApplicationContext(), menu.class);
+                Menu.putExtra("username", user);
+                startActivity(Menu);
+                finish();
+            }
+        });
+
+    }
 
 }

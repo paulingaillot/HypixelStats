@@ -32,7 +32,10 @@
             android:label="SkyWars" />
         <activity
             android:name=".menu"
-            android:label="Menu" /> <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+            android:label="Menu" />
+        <activity
+            android:name=".Waiting"
+            android:label="Waiting" /><!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-6251821844352758~2907624350" />
