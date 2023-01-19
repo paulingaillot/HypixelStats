@@ -146,9 +146,9 @@ public class menu extends AppCompatActivity {
                     finish();
                 } else {
                     if (MainActivity.errorCode != "") {
-                        tonEdit.setText("" + MainActivity.errorCode);
+                        tonEdit.setHint("" + MainActivity.errorCode);
                     } else {
-                        tonEdit.setText("Sorry but this username doesn't exist.");
+                        tonEdit.setHint("Sorry but this username doesn't exist.");
                     }
                 }
 

@@ -11,8 +11,8 @@ android {
         minSdk 19
         multiDexEnabled true
         targetSdkVersion 33
-        versionCode 12
-        versionName '1.11'
+        versionCode 13
+        versionName '1.12'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -61,5 +61,9 @@ dependencies {
     // For example, add the dependencies for Firebase Authentication and Cloud Firestore
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-firestore'
+
+    implementation 'com.google.android.material:material:1.8.0-rc01'
+
+
 
 }

@@ -140,14 +140,6 @@ public class MainActivity extends AppCompatActivity {
     AdRequest adRequest = new AdRequest.Builder().build();
     mAdView.loadAd(adRequest);
 
-    tonEdit.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-            tonEdit.setText("");
-          }
-        });
-
     button.setOnClickListener(
         new View.OnClickListener() {
           @Override

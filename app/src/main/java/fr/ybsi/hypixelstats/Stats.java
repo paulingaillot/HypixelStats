@@ -127,17 +127,25 @@ public class Stats extends AppCompatActivity {
                     // Create a new user with a first and last name
                     Map<String, Object> user1 = new HashMap<>();
                     user1.put("username", username);
-                    user1.put("xp", Network_EXP);
+                    user1.put("xp", Integer.parseInt(Network_EXP));
+                    user1.put("topXp", -1);
 
                     profils.add(user1);
                   } else {
-                    int xp2 = Integer.parseInt((String) task.getResult().getDocuments().get(0).get("xp"));
+                      int xp2=0;
+                      try {
+                        xp2 = (Integer)( task.getResult().getDocuments().get(0).get("xp"));
+                      }catch (Exception e){
+
+                      }
+
                     if (xp2 != Integer.parseInt(Network_EXP)) {
                       profils.document(task.getResult().getDocuments().get(0).getId()).delete();
                       // Create a new user with a first and last name
                       Map<String, Object> user1 = new HashMap<>();
                       user1.put("username", username);
-                      user1.put("xp", Network_EXP);
+                      user1.put("xp", Integer.parseInt(Network_EXP));
+                      user1.put("topXp", -1);
 
                       profils.add(user1);
                     }

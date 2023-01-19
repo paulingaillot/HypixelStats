@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Hypixel Stats</string>
     <string name="Search">Search</string>
+    <string name="background">Background</string>
 </resources>

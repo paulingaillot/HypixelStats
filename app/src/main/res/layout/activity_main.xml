@@ -12,8 +12,10 @@
         android:id="@+id/imageView6"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="@string/background"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/fond" />
@@ -35,23 +37,25 @@
         android:layout_marginStart="44dp"
         android:layout_marginTop="72dp"
         android:ems="10"
+        android:hint="Username"
         android:inputType="textPersonName"
         android:minHeight="48dp"
 
-        android:text="Username"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
+
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
+        android:layout_width="67dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="72dp"
-        android:background="#FFAB00"
+        android:background="@drawable/rounded_box"
         android:contentDescription="@string/app_name"
-        android:drawableLeft="@android:drawable/ic_menu_search"
 
+        android:drawableBottom="@android:drawable/ic_menu_search"
 
         app:layout_constraintStart_toEndOf="@+id/editText"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
@@ -72,9 +76,10 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="56dp"
         android:fontFamily="@font/aldrich"
-        android:textAlignment="center"
         android:text="Hypixel Stats"
-        android:textColor="#FFC107"
+        android:textAlignment="center"
+        android:textColor="#FF8F00"
+
         android:textSize="36sp"
         android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,5 +95,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
