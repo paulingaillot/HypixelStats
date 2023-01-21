@@ -97,8 +97,7 @@ public class Stats extends AppCompatActivity {
 
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         Bundle bundle = new Bundle();
-        bundle.putString(FirebaseAnalytics.Param.SCREEN_NAME, "MainActivity");
-        //bundle.putString(FirebaseAnalytics.Param.SEARCH_TERM, user);
+        bundle.putString(FirebaseAnalytics.Param.SCREEN_NAME, "Stats");
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 
 
@@ -115,7 +114,7 @@ public class Stats extends AppCompatActivity {
 
         // Create a query against the collection.
         Query query = profils.whereEqualTo("username", username);
-    query
+        query
         .get()
         .addOnCompleteListener(
             new OnCompleteListener<QuerySnapshot>() {

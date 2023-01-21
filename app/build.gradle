@@ -11,8 +11,8 @@ android {
         minSdk 19
         multiDexEnabled true
         targetSdkVersion 33
-        versionCode 13
-        versionName '1.12'
+        versionCode 14
+        versionName '1.13'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -27,6 +27,9 @@ android {
         exclude('META-INF/DEPENDENCIES')
     }
     namespace 'fr.ybsi.hypixelstats'
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -35,6 +38,8 @@ dependencies {
     implementation 'androidx.percentlayout:percentlayout:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.navigation:navigation-fragment:2.5.3'
+    implementation 'androidx.navigation:navigation-ui:2.5.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     testImplementation 'junit:junit:4.13.2'
@@ -42,7 +47,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-ads:21.4.0'
 
     //implementation 'com.google.firebase:firebase-perf:20.3.0'
-    implementation 'com.google.code.gson:gson:2.10'
+    implementation 'com.google.code.gson:gson:2.10.1'
 
 
     // Add the Firebase SDK for Crashlytics.
@@ -59,11 +64,14 @@ dependencies {
     // TODO: Add the dependencies for any other Firebase products you want to use
     // See https://firebase.google.com/docs/android/setup#available-libraries
     // For example, add the dependencies for Firebase Authentication and Cloud Firestore
-    implementation 'com.google.firebase:firebase-auth'
+    implementation ('com.google.firebase:firebase-auth'){
+        exclude module: "play-services-safetynet"
+    }
     implementation 'com.google.firebase:firebase-firestore'
 
     implementation 'com.google.android.material:material:1.8.0-rc01'
 
-
-
+    // Add the dependencies for the Remote Config and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-config'
 }
