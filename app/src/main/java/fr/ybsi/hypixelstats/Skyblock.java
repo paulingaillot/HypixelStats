@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -142,16 +143,16 @@ public class Skyblock extends AppCompatActivity {
   public class UpdateTask2 extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
-      farming.setText("Farming " + farmlevel);
-      mining.setText("Mining " + mininglevel);
-      combat.setText("Combat " + combatlevel);
-      foraging.setText("Foraging " + foraginglevel);
-      runecrafting.setText("Runecrafting " + runecraftinglevel);
-      fishing.setText("Fishing " + fishinglevel);
-      enchanting.setText("Enchanting " + enchantinglevel);
-      alchemy.setText("Alchemy " + alchemylevel);
-      taming.setText("Taming " + taminglevel);
-      carpentry.setText("Carpentry " + carpentrylevel);
+      farming.setText("\uD83C\uDF3E Farming " + farmlevel);
+      mining.setText("\uD83E\uDEA8 Mining " + mininglevel);
+      combat.setText("⚔️Combat " + combatlevel);
+      foraging.setText("\uD83C\uDF32 Foraging " + foraginglevel);
+      runecrafting.setText("Ξ Runecrafting " + runecraftinglevel);
+      fishing.setText("\uD83D\uDC1F Fishing " + fishinglevel);
+      enchanting.setText("\uD83D\uDCD6 Enchanting " + enchantinglevel);
+      alchemy.setText("⚗️Alchemy " + alchemylevel);
+      taming.setText("\uD83D\uDC15 Taming " + taminglevel);
+      carpentry.setText("\uD83D\uDC77 Carpentry " + carpentrylevel);
 
       farmbar.setProgress(farmper);
       miningbar.setProgress(minper);
@@ -565,6 +566,14 @@ public class Skyblock extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_skyblock);
+    setTitle("Skyblock");
+
+    // Obtain the FirebaseAnalytics instance.
+    FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+    Bundle bundle = new Bundle();
+    bundle.putString(FirebaseAnalytics.Param.SCREEN_CLASS, "MainActivity");
+    mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW, bundle);
+
     Log.d("SkyWarsDebug", "1");
     AdView mAdView1 = findViewById(R.id.adView10);
     AdRequest adRequest1 = new AdRequest.Builder().build();

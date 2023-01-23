@@ -12,6 +12,9 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -292,9 +295,17 @@ public class Friends extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_friends);
+    setTitle("Friends");
 
-    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-    StrictMode.setThreadPolicy(policy);
+    AdView mAdView = findViewById(R.id.adView5);
+    AdRequest adRequest = new AdRequest.Builder().build();
+    mAdView.loadAd(adRequest);
+
+    // Obtain the FirebaseAnalytics instance.
+    FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+    Bundle bundle = new Bundle();
+    bundle.putString(FirebaseAnalytics.Param.SCREEN_CLASS, "MainActivity");
+    mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW, bundle);
 
     uuid = jsonObject.getAsJsonObject("player").get("uuid").toString().replaceAll("\"", "");
     sv = (LinearLayout) findViewById(R.id.linearLayoutFriend);

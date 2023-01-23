@@ -8,6 +8,13 @@
     tools:context=".TnTGames">
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline93"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8596974" />
+
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,35 +49,33 @@
         android:background="#65000000"
         app:layout_constraintBottom_toTopOf="@+id/adView8"
         app:layout_constraintEnd_toEndOf="@+id/imageView7"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline17"
-        app:layout_constraintVertical_bias="0.306" />
+        app:layout_constraintVertical_bias="0.775" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="179dp"
         android:layout_height="36dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginRight="10dp"
         android:text="TnTGames Stats"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/guideline17"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.432"
-        app:layout_constraintStart_toEndOf="@+id/imageView19"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.192" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="50dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="16dp"
+        android:layout_height="50dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline17"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline13"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_dialog_dialer" />
 
@@ -78,14 +83,12 @@
         android:id="@+id/imageView10"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="132dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="133dp"
-        app:layout_constraintBottom_toBottomOf="@+id/kills_bow"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline18"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView77"
-        app:layout_constraintTop_toTopOf="@+id/imageView7"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toTopOf="@+id/guideline17"
         app:srcCompat="@mipmap/ic_launcher" />
 
     <TextView
@@ -93,10 +96,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
-        android:text="Username :"
+        android:text="👤 Username :"
         android:textColor="#000000"
-        android:textSize="18sp"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
         app:layout_constraintBaseline_toBaselineOf="@+id/username"
         app:layout_constraintStart_toStartOf="@+id/guideline11" />
@@ -105,225 +109,217 @@
         android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="22dp"
         android:text="TextView"
-        android:textSize="18sp"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toStartOf="@+id/imageView10"
-        app:layout_constraintTop_toTopOf="@+id/imageView10" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline87"
+        app:layout_constraintEnd_toStartOf="@+id/guideline15"
+        app:layout_constraintStart_toEndOf="@+id/textView32" />
 
     <TextView
         android:id="@+id/textView49"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Money :"
+        android:text="🪙 Money :"
         android:textColor="#000000"
-        android:textSize="18sp"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toTopOf="@+id/guideline18"
-        app:layout_constraintStart_toStartOf="@+id/guideline11"
-        app:layout_constraintTop_toBottomOf="@+id/textView32" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline88"
+        app:layout_constraintStart_toStartOf="@+id/guideline11" />
 
     <TextView
         android:id="@+id/money"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textSize="18sp"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toTopOf="@+id/guideline18"
-        app:layout_constraintStart_toEndOf="@+id/textView49"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline88"
+        app:layout_constraintStart_toEndOf="@+id/textView49" />
 
     <TextView
         android:id="@+id/textView53"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Wins :"
+        android:text="🏆 Wins :"
         android:textColor="#000000"
-        android:textSize="18sp"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toTopOf="@+id/guideline12"
-        app:layout_constraintStart_toStartOf="@+id/guideline11"
-        app:layout_constraintTop_toTopOf="@+id/guideline18"
-        app:layout_constraintVertical_bias="0.153" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline89"
+        app:layout_constraintStart_toStartOf="@+id/guideline13" />
 
     <TextView
         android:id="@+id/wins"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textSize="18sp"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toTopOf="@+id/guideline12"
-        app:layout_constraintStart_toEndOf="@+id/textView53"
-        app:layout_constraintTop_toTopOf="@+id/guideline18"
-        app:layout_constraintVertical_bias="0.153" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline89"
+        app:layout_constraintStart_toEndOf="@+id/textView53" />
 
     <TextView
         android:id="@+id/TNTRun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="4dp"
         android:text="TNTRun"
         android:textColor="#000000"
-        android:textSize="18sp"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline12" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintEnd_toStartOf="@+id/textView77"
+        app:layout_constraintHorizontal_bias="0.263"
+        app:layout_constraintStart_toStartOf="@+id/guideline13" />
 
     <TextView
         android:id="@+id/textView77"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="4dp"
         android:text="PVPRun"
         android:textColor="#000000"
-        android:textSize="18sp"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintStart_toEndOf="@+id/TNTRun"
-        app:layout_constraintTop_toTopOf="@+id/guideline12" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintEnd_toStartOf="@+id/guideline15"
+        app:layout_constraintStart_toStartOf="@+id/guideline14" />
 
     <TextView
         android:id="@+id/textView78"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="4dp"
         android:text="BowSpleef"
         android:textColor="#000000"
-        android:textSize="18sp"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintStart_toStartOf="@+id/imageView10"
-        app:layout_constraintTop_toTopOf="@+id/guideline12" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintEnd_toStartOf="@+id/guideline16"
+        app:layout_constraintStart_toStartOf="@+id/guideline15" />
 
     <TextView
         android:id="@+id/textView79"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:text="TNTTag"
         android:textColor="#000000"
-        android:textSize="18sp"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toEndOf="@+id/textView93"
-        app:layout_constraintStart_toEndOf="@+id/textView93"
-        app:layout_constraintTop_toTopOf="@+id/guideline12" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline16" />
 
     <TextView
         android:id="@+id/textView80"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="23dp"
-        android:text="Wins :"
+        android:text="🏆 Wins :"
         android:textColor="#000000"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBaseline_toBaselineOf="@+id/wins_tntrun"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline90"
+        app:layout_constraintStart_toStartOf="@+id/guideline13" />
 
     <TextView
         android:id="@+id/textView81"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:text="Deaths : "
+        android:text="💀 Deaths : "
         android:textColor="#000000"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBaseline_toBaselineOf="@+id/death_tntrun"
+        app:layout_constraintBottom_toTopOf="@+id/guideline91"
         app:layout_constraintStart_toStartOf="@+id/guideline13" />
 
     <TextView
         android:id="@+id/textView82"
-        android:layout_width="0dp"
+        android:layout_width="46dp"
         android:layout_height="31dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="23dp"
-        android:text="Double Jump :"
+        android:text="🦘 Double Jump :"
         android:textColor="#000000"
-        android:textSize="10sp"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@+id/spp_tntrun"
-        app:layout_constraintEnd_toEndOf="@+id/textView83"
-        app:layout_constraintStart_toStartOf="@+id/textView81"
-        app:layout_constraintTop_toBottomOf="@+id/textView81" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline94"
+        app:layout_constraintStart_toStartOf="@+id/guideline13" />
 
     <TextView
         android:id="@+id/db_tntrun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="7dp"
         android:text="0"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintStart_toEndOf="@+id/textView82"
-        app:layout_constraintTop_toTopOf="@+id/textView87" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline94"
+        app:layout_constraintStart_toEndOf="@+id/textView82" />
 
     <TextView
         android:id="@+id/spp_tntrun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
         android:text="0"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toEndOf="@+id/textView84"
-        app:layout_constraintStart_toEndOf="@+id/textView84"
-        app:layout_constraintTop_toBottomOf="@+id/db_tntrun" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline92"
+        app:layout_constraintStart_toEndOf="@+id/textView83" />
 
     <TextView
         android:id="@+id/textView84"
         android:layout_width="58dp"
         android:layout_height="29dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginEnd="27dp"
-        android:text="Slowless Potion :"
+        android:text="🧪 Slowless Potion :"
         android:textColor="#000000"
-        android:textSize="10sp"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@+id/slp_tntrun"
-        app:layout_constraintEnd_toStartOf="@+id/guideline14"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/slp_tntrun" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline93"
+        app:layout_constraintStart_toStartOf="@+id/guideline13" />
 
     <TextView
         android:id="@+id/slp_tntrun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="17dp"
         android:text="0"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintStart_toEndOf="@+id/textView84"
-        app:layout_constraintTop_toBottomOf="@+id/textView83" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline93"
+        app:layout_constraintStart_toEndOf="@+id/textView84" />
 
     <TextView
         android:id="@+id/textView83"
         android:layout_width="48dp"
         android:layout_height="31dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Speed Potion :"
+        android:text="🧪 Speed Potion :"
         android:textColor="#000000"
-        android:textSize="10sp"
+
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@+id/spp_tntrun"
-        app:layout_constraintEnd_toEndOf="@+id/spp_tntrun"
-        app:layout_constraintStart_toStartOf="@+id/textView49"
-        app:layout_constraintTop_toBottomOf="@+id/spp_tntrun" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline92"
+        app:layout_constraintStart_toStartOf="@+id/guideline13" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView8"
@@ -339,164 +335,170 @@
         android:id="@+id/textView86"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:text="Kills :"
+        android:text="⚔️Kills :"
         android:textColor="#000000"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBaseline_toBaselineOf="@+id/kills_pvprun"
+        app:layout_constraintBottom_toTopOf="@+id/guideline91"
         app:layout_constraintStart_toStartOf="@+id/guideline14" />
 
     <TextView
         android:id="@+id/textView85"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:text="Wins :"
+        android:text="🏆 Wins :"
         android:textColor="#000000"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBaseline_toBaselineOf="@+id/win_pvprun"
+        app:layout_constraintBottom_toTopOf="@+id/guideline90"
         app:layout_constraintStart_toStartOf="@+id/guideline14" />
 
     <TextView
         android:id="@+id/win_pvprun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
         android:text="0"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintStart_toEndOf="@+id/textView85"
-        app:layout_constraintTop_toTopOf="@+id/textView90" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline90"
+        app:layout_constraintEnd_toStartOf="@+id/guideline15"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@+id/textView85" />
 
     <TextView
         android:id="@+id/kills_pvprun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="24dp"
         android:text="0"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintStart_toEndOf="@+id/textView86"
-        app:layout_constraintTop_toBottomOf="@+id/win_pvprun" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline91"
+        app:layout_constraintStart_toEndOf="@+id/textView86" />
 
     <TextView
         android:id="@+id/deaths_pvprun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="25dp"
         android:text="0"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintStart_toEndOf="@+id/textView87"
-        app:layout_constraintTop_toBottomOf="@+id/kills_pvprun" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline94"
+        app:layout_constraintStart_toEndOf="@+id/textView87" />
 
     <TextView
         android:id="@+id/textView88"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Double Jump :"
+        android:text="🦘 Double Jump :"
         android:textColor="#000000"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@+id/spp_tntrun"
-        app:layout_constraintEnd_toEndOf="@+id/textView87"
-        app:layout_constraintHorizontal_bias="0.582"
-        app:layout_constraintStart_toEndOf="@+id/textView87"
-        app:layout_constraintTop_toBottomOf="@+id/spp_tntrun"
-        app:layout_constraintVertical_bias="0.421" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline92"
+        app:layout_constraintStart_toStartOf="@+id/guideline14" />
 
     <TextView
         android:id="@+id/db_pvprun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="22dp"
         android:text="0"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toTopOf="@+id/survived_pvprun"
+        app:layout_constraintBottom_toTopOf="@+id/guideline92"
         app:layout_constraintStart_toEndOf="@+id/textView88" />
 
     <TextView
         android:id="@+id/textView89"
-        android:layout_width="0dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Survival Record :"
         android:textColor="#000000"
-        android:textSize="10sp"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@+id/slp_tntrun"
-        app:layout_constraintEnd_toStartOf="@+id/survived_pvprun"
-        app:layout_constraintStart_toStartOf="@+id/textView87"
-        app:layout_constraintTop_toBottomOf="@+id/slp_tntrun" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline93"
+        app:layout_constraintStart_toStartOf="@+id/guideline14" />
 
     <TextView
         android:id="@+id/survived_pvprun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="22dp"
         android:text="0"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toStartOf="@+id/guideline15"
-        app:layout_constraintTop_toTopOf="@+id/slp_tntrun" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline93"
+        app:layout_constraintStart_toEndOf="@+id/textView89" />
 
     <TextView
         android:id="@+id/textView87"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:text="Deaths :"
+        android:text="💀 Deaths :"
         android:textColor="#000000"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBaseline_toBaselineOf="@+id/deaths_pvprun"
+        app:layout_constraintBottom_toTopOf="@+id/guideline94"
         app:layout_constraintStart_toStartOf="@+id/guideline14" />
 
     <TextView
         android:id="@+id/textView90"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginBottom="24dp"
-        android:text="Wins :"
+        android:text="🏆 Wins :"
         android:textColor="#000000"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toTopOf="@+id/textView91"
+        app:layout_constraintBottom_toTopOf="@+id/guideline90"
         app:layout_constraintStart_toStartOf="@+id/guideline15" />
 
     <TextView
         android:id="@+id/textView92"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
         android:text="Tags :"
         android:textColor="#000000"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toTopOf="@+id/deaths_pvprun"
-        app:layout_constraintStart_toStartOf="@+id/guideline15"
-        app:layout_constraintTop_toTopOf="@+id/deaths_pvprun" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline94"
+        app:layout_constraintStart_toStartOf="@+id/guideline16" />
 
     <TextView
         android:id="@+id/wins_tnttag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView90"
-        app:layout_constraintStart_toStartOf="@+id/death_tnttag" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline90"
+        app:layout_constraintStart_toEndOf="@+id/textView90" />
 
     <TextView
         android:id="@+id/death_tnttag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
         android:text="0"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView91"
+        app:layout_constraintBottom_toTopOf="@+id/guideline91"
         app:layout_constraintStart_toEndOf="@+id/textView91" />
 
     <TextView
@@ -504,78 +506,85 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView92"
-        app:layout_constraintEnd_toStartOf="@+id/death_tnttag" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline94"
+        app:layout_constraintStart_toEndOf="@+id/textView92" />
 
     <TextView
         android:id="@+id/textView91"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="3dp"
-        android:text="Deaths :"
+        android:text="💀 Deaths :"
         android:textColor="#000000"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintStart_toStartOf="@+id/guideline15"
-        app:layout_constraintTop_toTopOf="@+id/textView94" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline91"
+        app:layout_constraintStart_toStartOf="@+id/guideline15" />
 
     <TextView
         android:id="@+id/textView93"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="32dp"
-        android:text="Wins"
+        android:text="🏆 Wins"
         android:textColor="#000000"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintStart_toStartOf="@+id/guideline16"
-        app:layout_constraintTop_toBottomOf="@+id/textView79" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline90"
+        app:layout_constraintStart_toStartOf="@+id/guideline16" />
 
     <TextView
         android:id="@+id/wins_bow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
         android:text="0"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView93"
+        app:layout_constraintBottom_toTopOf="@+id/guideline90"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView93" />
 
     <TextView
         android:id="@+id/kills_bow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:text="0"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView94"
+        app:layout_constraintBottom_toTopOf="@+id/guideline91"
         app:layout_constraintStart_toEndOf="@+id/textView94" />
 
     <TextView
         android:id="@+id/textView94"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="23dp"
-        android:text="Kills"
+        android:text="⚔️ Kills"
         android:textColor="#000000"
         android:textStyle="bold"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintStart_toStartOf="@+id/guideline16"
-        app:layout_constraintTop_toBottomOf="@+id/textView93" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline91"
+        app:layout_constraintStart_toStartOf="@+id/guideline16" />
 
     <TextView
         android:id="@+id/wins_tntrun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="26dp"
         android:text="0"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toTopOf="@+id/textView81"
+        app:layout_constraintBottom_toTopOf="@+id/guideline90"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@+id/textView80" />
 
     <TextView
@@ -583,16 +592,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintStart_toEndOf="@+id/textView81"
-        app:layout_constraintTop_toTopOf="@+id/textView86" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline91"
+        app:layout_constraintStart_toEndOf="@+id/textView81" />
 
     <ImageView
         android:id="@+id/imageView19"
         android:layout_width="33dp"
         android:layout_height="36dp"
-        android:layout_marginStart="96dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline17"
+        app:layout_constraintEnd_toStartOf="@+id/guideline15"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toEndOf="@+id/imageView8"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/tntgames" />
@@ -609,7 +621,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.47" />
+        app:layout_constraintGuide_percent="0.5" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline14"
@@ -623,7 +635,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.7591241" />
+        app:layout_constraintGuide_percent="0.76" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline17"
@@ -638,5 +650,54 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.38694993" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline87"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.22145805" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline88"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3218707" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline89"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.42778543" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline90"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5667125" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline91"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6217331" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline92"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.786795" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline94"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6808803" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

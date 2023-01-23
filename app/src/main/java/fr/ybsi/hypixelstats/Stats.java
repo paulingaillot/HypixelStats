@@ -75,6 +75,7 @@ public class Stats extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
+        setTitle("Stats");
 
         Intent intent = getIntent();
         user = intent.getStringExtra("username");
@@ -95,17 +96,17 @@ public class Stats extends AppCompatActivity {
         coins = findViewById(R.id.textView11);
         level1 = findViewById(R.id.level);
 
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-        Bundle bundle = new Bundle();
-        bundle.putString(FirebaseAnalytics.Param.SCREEN_NAME, "Stats");
-        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
-
-
         Thread test = new Thread(background);
         test.start();
         while (test.isAlive()) {
             continue;
         }
+
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.SCREEN_CLASS, "Stats");
+        bundle.putString(FirebaseAnalytics.Param.SEARCH_TERM, username);
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW, bundle);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -127,26 +128,18 @@ public class Stats extends AppCompatActivity {
                     Map<String, Object> user1 = new HashMap<>();
                     user1.put("username", username);
                     user1.put("xp", Integer.parseInt(Network_EXP));
-                    user1.put("topXp", -1);
 
                     profils.add(user1);
                   } else {
-                      int xp2=0;
+                      long xp2=0;
                       try {
-                        xp2 = (Integer)( task.getResult().getDocuments().get(0).get("xp"));
+                        xp2 = (Long)( task.getResult().getDocuments().get(0).get("xp"));
                       }catch (Exception e){
-
+                        e.printStackTrace();
                       }
 
                     if (xp2 != Integer.parseInt(Network_EXP)) {
-                      profils.document(task.getResult().getDocuments().get(0).getId()).delete();
-                      // Create a new user with a first and last name
-                      Map<String, Object> user1 = new HashMap<>();
-                      user1.put("username", username);
-                      user1.put("xp", Integer.parseInt(Network_EXP));
-                      user1.put("topXp", -1);
-
-                      profils.add(user1);
+                      profils.document(task.getResult().getDocuments().get(0).getId()).update("xp", Integer.parseInt(Network_EXP));
                     }
                   }
                 }

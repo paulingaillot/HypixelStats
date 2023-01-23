@@ -46,7 +46,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="32dp"
         android:text="Friend List"
         android:textColor="#000000"

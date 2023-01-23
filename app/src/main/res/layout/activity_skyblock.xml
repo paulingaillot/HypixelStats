@@ -7,31 +7,45 @@
     android:layout_height="match_parent"
     tools:context=".Skyblock">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline72"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline68"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline67"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.02919708" />
+
     <ImageView
         android:id="@+id/imageView32"
-        android:layout_width="0dp"
-        android:layout_height="715dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/divider"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/fond" />
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
-        android:layout_width="0dp"
+        android:layout_width="409dp"
         android:layout_height="64dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="58dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginBottom="58dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView97"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView33">
+        app:layout_constraintTop_toTopOf="@+id/guideline66">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -78,26 +92,23 @@
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="11dp"
-        android:layout_marginRight="11dp"
         android:shadowColor="#000000"
         android:text="SkyBlock"
         android:textColor="#000000"
-        android:textSize="36sp"
+        android:textSize="32sp"
         android:textStyle="bold"
+        android:layout_marginRight="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline66"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView31"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView31"
-        android:layout_width="53dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginRight="14dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline66"
         app:layout_constraintEnd_toStartOf="@+id/textView28"
+        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toEndOf="@+id/imageView33"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/skyblocklogo" />
@@ -106,213 +117,207 @@
         android:id="@+id/textView55"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="159dp"
-        android:layout_marginBottom="157dp"
-        android:text="Farming 0"
+        android:text="🌾 Farming 0"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/textView101"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView31" />
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/guideline69"
+        app:layout_constraintStart_toStartOf="@+id/guideline67" />
 
     <TextView
         android:id="@+id/textView76"
-        android:layout_width="0dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="32dp"
-        android:text="Mining 0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🪨 Mining 0"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/textView98"
-        app:layout_constraintEnd_toEndOf="@+id/textView95"
-        app:layout_constraintStart_toStartOf="@+id/textView95"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar5" />
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/guideline70"
+        app:layout_constraintStart_toStartOf="@+id/guideline67" />
 
     <TextView
         android:id="@+id/textView95"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="59dp"
-        android:text="Combat 0"
+        android:text="⚔️ Combat 0"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView55" />
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/guideline71"
+        app:layout_constraintStart_toStartOf="@+id/guideline67" />
 
     <TextView
         android:id="@+id/textView96"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginBottom="19dp"
-        android:text="Fishing 0 "
+        android:text="🐟 Fishing 0 "
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView97"
-        app:layout_constraintStart_toStartOf="@+id/textView97" />
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/guideline69"
+        app:layout_constraintStart_toStartOf="@+id/guideline68" />
 
     <TextView
         android:id="@+id/textView97"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="24dp"
-        android:text="Enchanting 0"
+        android:text="📖 Enchanting 0"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView98"
-        app:layout_constraintEnd_toStartOf="@+id/progressBar6" />
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/guideline70"
+        app:layout_constraintStart_toStartOf="@+id/guideline68" />
 
     <TextView
         android:id="@+id/textView98"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"
-        android:text="Alchemy 0 "
+        android:text="⚗️ Alchemy 0 "
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/progressBar3"
-        app:layout_constraintStart_toStartOf="@+id/textView97" />
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/guideline71"
+        app:layout_constraintStart_toStartOf="@+id/guideline68" />
 
     <TextView
         android:id="@+id/textView99"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
-        android:text="Foraging 0"
+        android:text="🌲 Foraging 0"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView95" />
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/guideline72"
+        app:layout_constraintStart_toStartOf="@+id/guideline67" />
 
     <TextView
         android:id="@+id/textView100"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginTop="21dp"
-        android:text="Taming 0 "
+        android:text="🐕 Taming 0 "
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView98"
-        app:layout_constraintTop_toBottomOf="@+id/textView98" />
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/guideline72"
+        app:layout_constraintStart_toStartOf="@+id/guideline68" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        app:layout_constraintStart_toEndOf="@+id/textView55"
-        app:layout_constraintTop_toTopOf="@+id/textView55" />
+        android:layout_marginLeft="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline69"
+        app:layout_constraintEnd_toStartOf="@+id/guideline68"
+        app:layout_constraintStart_toEndOf="@+id/textView55" />
 
     <ProgressBar
         android:id="@+id/progressBar2"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView97"
-        app:layout_constraintEnd_toStartOf="@+id/textView97"
-        app:layout_constraintTop_toBottomOf="@+id/textView97" />
+        android:layout_marginLeft="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline70"
+        app:layout_constraintEnd_toStartOf="@+id/guideline68"
+        app:layout_constraintStart_toEndOf="@+id/textView76" />
 
     <ProgressBar
         android:id="@+id/progressBar3"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toStartOf="@+id/progressBar2"
-        app:layout_constraintTop_toTopOf="@+id/textView95" />
+        android:layout_marginLeft="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline71"
+        app:layout_constraintEnd_toStartOf="@+id/guideline68"
+        app:layout_constraintStart_toEndOf="@+id/textView95" />
 
     <ProgressBar
         android:id="@+id/progressBar4"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toEndOf="@+id/textView99"
-        app:layout_constraintTop_toTopOf="@+id/textView99" />
+        android:layout_marginLeft="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline72"
+        app:layout_constraintEnd_toStartOf="@+id/guideline68"
+        app:layout_constraintStart_toEndOf="@+id/textView99" />
 
     <ProgressBar
         android:id="@+id/progressBar5"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="58dp"
-        android:layout_marginLeft="58dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="59dp"
-        android:layout_marginRight="59dp"
-        app:layout_constraintEnd_toEndOf="@+id/textView28"
-        app:layout_constraintStart_toEndOf="@+id/imageView31"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+        android:layout_marginLeft="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline69"
+        app:layout_constraintStart_toEndOf="@+id/textView96" />
 
     <ProgressBar
         android:id="@+id/progressBar6"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/textView97"
-        app:layout_constraintStart_toStartOf="@+id/progressBar5"
-        app:layout_constraintTop_toBottomOf="@+id/textView97" />
+        android:layout_marginLeft="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline70"
+        app:layout_constraintStart_toEndOf="@+id/textView97" />
 
     <ProgressBar
         android:id="@+id/progressBar7"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
+        android:layout_marginLeft="10dp"
         android:indeterminate="false"
-        app:layout_constraintStart_toStartOf="@+id/progressBar6"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar6" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline71"
+        app:layout_constraintStart_toEndOf="@+id/textView98" />
 
     <ProgressBar
         android:id="@+id/progressBar8"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        app:layout_constraintStart_toStartOf="@+id/progressBar7"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar7" />
+        android:layout_marginLeft="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline72"
+        app:layout_constraintStart_toEndOf="@+id/textView100" />
 
     <TextView
         android:id="@+id/textView101"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="17dp"
-        android:text="Runecrafting 0"
+        android:text="Ξ Runecrafting 0"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/divider"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/guideline73"
+        app:layout_constraintStart_toStartOf="@+id/guideline67" />
 
     <TextView
         android:id="@+id/textView102"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginLeft="14dp"
-        android:text="Carpentry 0 "
+        android:text="👷 Carpentry 0 "
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/progressBar9"
-        app:layout_constraintStart_toEndOf="@+id/progressBar9" />
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/guideline73"
+        app:layout_constraintStart_toStartOf="@+id/guideline68" />
 
     <ProgressBar
         android:id="@+id/progressBar9"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView101"
+        app:layout_constraintBottom_toTopOf="@+id/guideline73"
+        app:layout_constraintEnd_toStartOf="@+id/guideline68"
         app:layout_constraintStart_toEndOf="@+id/textView101" />
 
     <ProgressBar
@@ -320,201 +325,279 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginLeft="17dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView102"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline73"
         app:layout_constraintStart_toEndOf="@+id/textView102" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="31dp"
-        android:layout_marginRight="31dp"
-        android:layout_marginBottom="1dp"
         app:adSize="BANNER"
         app:adUnitId="ca-app-pub-6251821844352758/2468640651"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView32"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView33"
-        android:layout_width="52dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginLeft="11dp"
-        android:layout_marginEnd="90dp"
-        android:layout_marginRight="90dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView31"
-        app:layout_constraintEnd_toStartOf="@+id/imageView31"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView28"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline66"
+        app:layout_constraintStart_toStartOf="@+id/guideline67"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_dialog_dialer" />
 
     <TextView
         android:id="@+id/purse1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:text="Coins on Purse : "
+        android:text="🪙 Coins on Purse : "
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/purse"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline75"
+        app:layout_constraintStart_toStartOf="@+id/guideline67" />
 
     <TextView
         android:id="@+id/textView104"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="17dp"
-        android:text="Coins on Bank :"
+        android:text="🪙 Coins on Bank :"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/purse1" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline76"
+        app:layout_constraintStart_toStartOf="@+id/guideline67" />
 
     <TextView
         android:id="@+id/textView105"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginLeft="18dp"
-        android:text="Hightest Crit-Damage dealt : "
+        android:layout_marginLeft="55dp"
+        android:text="🩸 Hightest Crit-Damage dealt : "
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/ct"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline77"
+        app:layout_constraintStart_toStartOf="@+id/guideline67" />
 
     <TextView
         android:id="@+id/textView106"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginRight="19dp"
-        android:text="Last Connection : "
+        android:text="🕒 Last Connection : "
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/divider"
-        app:layout_constraintTop_toBottomOf="@+id/divider" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline75"
+        app:layout_constraintStart_toStartOf="@+id/guideline68" />
 
     <View
         android:id="@+id/divider"
         android:layout_width="342dp"
         android:layout_height="2dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView32"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline74"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <View
         android:id="@+id/divider2"
-        android:layout_width="0dp"
-        android:layout_height="4dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginLeft="11dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="11dp"
-        android:layout_marginRight="11dp"
-        android:layout_marginBottom="43dp"
+        android:layout_width="340dp"
+        android:layout_height="3dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toBottomOf="@+id/textView107"
+        app:layout_constraintBottom_toTopOf="@+id/guideline78"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView105" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView107"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="49dp"
-        android:layout_marginLeft="49dp"
-        android:layout_marginEnd="49dp"
-        android:layout_marginRight="49dp"
-        android:layout_marginBottom="35dp"
-        android:text="Events"
+        android:background="@drawable/rounded_box"
+        android:text="📅 Events"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView109"
-        app:layout_constraintEnd_toEndOf="@+id/progressBar"
-        app:layout_constraintStart_toStartOf="@+id/divider2" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline81"
+        app:layout_constraintStart_toStartOf="@+id/guideline79" />
 
     <TextView
         android:id="@+id/textView108"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Minions"
+        android:background="@drawable/rounded_box"
+        android:text="👷 Minions"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/progressBar10"
-        app:layout_constraintStart_toEndOf="@+id/ct"
-        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline81"
+        app:layout_constraintStart_toStartOf="@+id/guideline80" />
 
     <TextView
         android:id="@+id/textView109"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_marginBottom="104dp"
-        android:text="Collections"
+        android:background="@drawable/rounded_box"
+        android:text="📚 Collections"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/bank"
-        app:layout_constraintStart_toStartOf="@+id/divider2" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline82"
+        app:layout_constraintStart_toStartOf="@+id/guideline79" />
 
     <TextView
         android:id="@+id/textView110"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Pets"
+        android:background="@drawable/rounded_box"
+        android:text="🐾 Pets"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/textView108"
-        app:layout_constraintTop_toBottomOf="@+id/textView108" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline82"
+        app:layout_constraintStart_toStartOf="@+id/guideline80" />
 
     <TextView
         android:id="@+id/purse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginTop="23dp"
         android:text="0"
-        app:layout_constraintStart_toEndOf="@+id/purse1"
-        app:layout_constraintTop_toBottomOf="@+id/divider" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline75"
+        app:layout_constraintStart_toEndOf="@+id/purse1" />
 
     <TextView
         android:id="@+id/bank"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
         android:text="0"
-        app:layout_constraintStart_toStartOf="@+id/purse"
-        app:layout_constraintTop_toBottomOf="@+id/purse" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline76"
+        app:layout_constraintStart_toEndOf="@+id/textView104" />
 
     <TextView
         android:id="@+id/connection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginLeft="17dp"
-        android:layout_marginTop="9dp"
         android:text="never"
-        app:layout_constraintStart_toStartOf="@+id/textView106"
-        app:layout_constraintTop_toBottomOf="@+id/textView106" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline75"
+        app:layout_constraintStart_toEndOf="@+id/textView106" />
 
     <TextView
         android:id="@+id/ct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginLeft="14dp"
-        android:layout_marginTop="36dp"
         android:text="0"
-        app:layout_constraintStart_toEndOf="@+id/textView105"
-        app:layout_constraintTop_toBottomOf="@+id/connection" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline77"
+        app:layout_constraintStart_toEndOf="@+id/textView105" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline66"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.084295616" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline69"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline70"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline71"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline73"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline74"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.44226328" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline75"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline76"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline77"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.61" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline78"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65588915" />
+
+    <TextView
+        android:id="@+id/textView121"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_box"
+        android:text="🧟 Slayers"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline83"
+        app:layout_constraintStart_toStartOf="@+id/guideline79" />
+
+    <TextView
+        android:id="@+id/textView122"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_box"
+        android:text="🏹 Dungeons"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline83"
+        app:layout_constraintStart_toStartOf="@+id/guideline80" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline79"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.12895377" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline80"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.58880776" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline81"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.73556584" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline82"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.817552" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline83"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.89491916" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

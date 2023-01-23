@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -32,6 +33,13 @@ public class menu extends AppCompatActivity {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.activity_menu);
+      setTitle("Menu");
+
+      // Obtain the FirebaseAnalytics instance.
+      FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+      Bundle bundle = new Bundle();
+      bundle.putString(FirebaseAnalytics.Param.SCREEN_CLASS, "MainActivity");
+      mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW, bundle);
 
     AdView mAdView = findViewById(R.id.adView3);
     AdRequest adRequest = new AdRequest.Builder().build();
@@ -52,6 +60,7 @@ public class menu extends AppCompatActivity {
     TextView general = findViewById(R.id.General);
     TextView skyBlock = findViewById(R.id.SkyBlock);
     ImageView friends = findViewById(R.id.imageView15);
+    ImageView leader = findViewById(R.id.imageView);
 
     skyBlock.setOnClickListener(
         new View.OnClickListener() {
@@ -141,6 +150,16 @@ public class menu extends AppCompatActivity {
             finish();
           }
         });
+
+      leader.setOnClickListener(
+              new View.OnClickListener() {
+                  @Override
+                  public void onClick(View view) {
+                      Intent Leader = new Intent(getApplicationContext(), Leaderboard.class);
+                      startActivity(Leader);
+                      finish();
+                  }
+              });
   }
 
   public class UpdateTask extends AsyncTask<String, String, String> {

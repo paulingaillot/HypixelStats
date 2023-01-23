@@ -146,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+    setTitle("MainActivity");
 
     Button button = findViewById(R.id.button);
     TextView error = findViewById(R.id.textView51);
@@ -168,10 +169,9 @@ public class MainActivity extends AppCompatActivity {
 
     // Obtain the FirebaseAnalytics instance.
     mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-
     Bundle bundle = new Bundle();
-    bundle.putString(FirebaseAnalytics.Param.SCREEN_NAME, "MainActivity");
-    mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+    bundle.putString(FirebaseAnalytics.Param.SCREEN_CLASS, "MainActivity");
+    mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW, bundle);
 
     button.setOnClickListener(
         new View.OnClickListener() {
